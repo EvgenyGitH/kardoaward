@@ -13,11 +13,8 @@ import java.time.LocalDate;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class UserProfile {
+public class UserPage {
 
-    private Long id;
-    private String email;
-    private String password;
     private String nickname;
     private String firstName;
     private String lastName;
@@ -26,11 +23,14 @@ public class UserProfile {
     private String country;
     private String region;
     private String city;
-    private String phone;
+
     private String photoLink;
     private String backgroundLink;
     private String pageLink;
     private Style style;
     private String aboutMe;
     private State state;
+
+
+
 }
