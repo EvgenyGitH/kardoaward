@@ -34,7 +34,8 @@ public class UserServiceImpl implements UserService {
     @Transactional
     public UserProfile createUser(NewUserRequest newUserRequest) {
         User user = UserMapper.newUserRequestToUser(newUserRequest);
-        checkNickname(newUserRequest.getNickname());
+        checkEmail(newUserRequest.getEmail()); // удалить если будут добавлены предварительные экраны проверки почты и ника
+        checkNickname(newUserRequest.getNickname()); // удалить если будут добавлены предварительные экраны проверки почты и ника
         user.setState(State.ACTIVE);
         user.setUserRole(UserRole.USER);
         User savedUser;
@@ -83,19 +84,29 @@ public class UserServiceImpl implements UserService {
 
 
     @Override
-    public void checkEmail(String email) {
+    public boolean checkEmail(String email) {
+        boolean flag = true;
         Optional<User> savedUser = userRepository.findUserByEmailContainingIgnoreCase(email);
         if (savedUser.isPresent() && savedUser.get().getEmail().equals(email)) {
+            flag =true;
             throw new DuplicateException("Пользователь с указанным email уже зарегистрирован");
+        }else {
+            flag =false;
         }
+        return flag;
     }
 
     @Override
-    public void checkNickname(String nickname) {
+    public boolean checkNickname(String nickname) {
+        boolean flag = true;
         Optional<User> savedUser = userRepository.findUserByNicknameContainingIgnoreCase(nickname);
         if (savedUser.isPresent() && savedUser.get().getNickname().equals(nickname)) {
+            flag =true;
             throw new DuplicateException("Пользователь с указанным nickname: " + nickname + " уже зарегистрирован");
+        }else {
+            flag =false;
         }
+        return flag;
     }
 
 }

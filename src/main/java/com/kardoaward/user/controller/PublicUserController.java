@@ -47,4 +47,16 @@ public class PublicUserController {
         return userService.findUserByParam(nickname, firstName, lastName, middleName, birthday, country, region, city, style, from, size);
     }
 
+    @GetMapping("/checkEmail")
+    public boolean checkEmail(String email){
+        log.info("request: check Email ");
+        return userService.checkEmail(email);
+    }
+
+    @GetMapping("/checkEmail")
+    public boolean checkNickname(String nickname){
+        log.info("request: check nickname ");
+        return userService.checkNickname(nickname);
+    }
+
 }

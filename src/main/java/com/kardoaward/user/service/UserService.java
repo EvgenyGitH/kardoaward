@@ -21,7 +21,7 @@ public interface UserService {
     UserProfile deleteUserById(Long userId);
 
 
-    void checkEmail(String email);
+    boolean checkEmail(String email);
 
-    void checkNickname(String nickname);
+    boolean checkNickname(String nickname);
 }

@@ -5,31 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1cff83f3-1af1-419a-a6e0-e26cdf715b2b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/kardoaward/exception/NotFoundException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/kardoaward/subscription/controller/SubscriptionController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/kardoaward/subscription/dto/SubscriptionDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/kardoaward/subscription/mapper/SubscriptionMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/kardoaward/subscription/model/Subscription.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/kardoaward/subscription/repository/SubscriptionRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/kardoaward/subscription/service/SubscriptionService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/kardoaward/subscription/service/impl/SubscriptionServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/kardoaward/user/dto/UserPage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/kardoaward/user/dto/UserUpdateRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/kardoaward/user/model/Style.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kardoaward/exception/ErrorHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kardoaward/exception/ErrorHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kardoaward/user/controller/ProfileUserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kardoaward/user/controller/ProfileUserController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/kardoaward/user/controller/PublicUserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kardoaward/user/controller/PublicUserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kardoaward/user/dto/NewUserRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kardoaward/user/dto/NewUserRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kardoaward/user/dto/UserProfile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kardoaward/user/dto/UserProfile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kardoaward/user/mapper/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kardoaward/user/mapper/UserMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kardoaward/user/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kardoaward/user/model/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kardoaward/user/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kardoaward/user/repository/UserRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/kardoaward/user/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kardoaward/user/service/UserService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/kardoaward/user/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kardoaward/user/service/impl/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/schema.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/schema.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -133,17 +112,17 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/kardoaward/user/service/impl/UserServiceImpl.java</url>
-          <line>87</line>
+          <line>89</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/kardoaward/user/service/impl/UserServiceImpl.java</url>
-          <line>86</line>
+          <line>88</line>
           <option name="timeStamp" value="3" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/kardoaward/user/service/impl/UserServiceImpl.java</url>
-          <line>39</line>
+          <line>40</line>
           <option name="timeStamp" value="4" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -163,17 +142,17 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/kardoaward/user/service/impl/UserServiceImpl.java</url>
-          <line>54</line>
+          <line>55</line>
           <option name="timeStamp" value="17" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/kardoaward/user/service/impl/UserServiceImpl.java</url>
-          <line>53</line>
+          <line>54</line>
           <option name="timeStamp" value="18" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/kardoaward/user/service/impl/UserServiceImpl.java</url>
-          <line>52</line>
+          <line>53</line>
           <option name="timeStamp" value="19" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -202,7 +181,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/com/kardoaward/user/service/impl/UserServiceImpl.java</url>
-          <line>50</line>
+          <line>51</line>
           <properties class="com.kardoaward.user.service.impl.UserServiceImpl" method="findUserByParam">
             <option name="WATCH_EXIT" value="false" />
           </properties>
