@@ -3,12 +3,11 @@ package com.kardoaward.user.service.impl;
 import com.kardoaward.exception.DataConflictException;
 import com.kardoaward.exception.DuplicateException;
 import com.kardoaward.exception.NotFoundException;
-import com.kardoaward.user.dto.NewUserRequest;
-import com.kardoaward.user.dto.UserPage;
-import com.kardoaward.user.dto.UserProfile;
-import com.kardoaward.user.dto.UserUpdateRequest;
+import com.kardoaward.subscription.service.SubscriptionService;
+import com.kardoaward.user.dto.*;
 import com.kardoaward.user.mapper.UserMapper;
 import com.kardoaward.user.model.State;
+import com.kardoaward.user.model.Style;
 import com.kardoaward.user.model.User;
 import com.kardoaward.user.model.UserRole;
 import com.kardoaward.user.repository.UserRepository;
@@ -29,7 +28,10 @@ import java.util.Optional;
 public class UserServiceImpl implements UserService {
 
     private final UserRepository userRepository;
+    private final SubscriptionService subscriptionService;
 
+
+    // -- public -- //
     @Override
     @Transactional
     public UserProfile createUser(NewUserRequest newUserRequest) {
@@ -49,20 +51,82 @@ public class UserServiceImpl implements UserService {
 
 
     @Override
-    public List<UserPage> findUserByParam(String nickname, String firstName, String lastName, String middleName,
-                                          LocalDate birthday, String country, String region, String city, String style, int from, int size) {
+    public List<UserShortPage> findUserByParam(String nickname, String firstName, String lastName, String middleName,
+                                               LocalDate birthday, String country, String region, String city, String style, int from, int size) {
         Pageable pageable = PageRequest.of(from / size, size);
         List<User> foundUsers = userRepository.findAllByParam(nickname, firstName, lastName, middleName, birthday, country, region, city, style, pageable);
-        return UserMapper.usersToUserPages(foundUsers);
+        return UserMapper.usersToUserShortPage(foundUsers);
     }
 
 
+    //todo дополнить информацией из фич List<фича> ...
+    @Override
+    public UserPage getUserPageById(Long userId) {
+        User savedUser = userRepository.findById(userId).orElseThrow(() -> new NotFoundException("User with id: " + userId + "is not found."));
+        List<UserShortPage> iFollowings = subscriptionService.getUserFollowings(userId);
+        List<UserShortPage> myFollowers = subscriptionService.getUserFollowers(userId);
+
+        return UserMapper.userToUserPage(savedUser, iFollowings, myFollowers);
+    }
+
+
+    // -- private -- //
     @Override
     @Transactional
     public UserProfile updateUser(Long userId, UserUpdateRequest userUpdateRequest) {
-        //    User user = UserMapper.userUpdateRequestToUser(userUpdateRequest);
-        // User savedUser = userRepository.findById(userId).orElseThrow(() -> new NotFoundException("User with id: " + userId + "is not found."));
-        return null;
+        User savedUser = userRepository.findById(userId).orElseThrow(() -> new NotFoundException("User with id: " + userId + "is not found."));
+        if (userUpdateRequest.getEmail() != null) {
+            checkEmail(userUpdateRequest.getEmail());
+            savedUser.setEmail(userUpdateRequest.getEmail());
+        }
+        if (userUpdateRequest.getPassword() != null) {
+            savedUser.setPassword(userUpdateRequest.getPassword());
+        }
+        if (userUpdateRequest.getNickname() != null) {
+            checkNickname(userUpdateRequest.getNickname());
+            savedUser.setNickname(userUpdateRequest.getNickname());
+        }
+        if (userUpdateRequest.getFirstName() != null) {
+            savedUser.setFirstName(userUpdateRequest.getFirstName());
+        }
+        if (userUpdateRequest.getLastName() != null) {
+            savedUser.setLastName(userUpdateRequest.getLastName());
+        }
+        if (userUpdateRequest.getMiddleName() != null) {
+            savedUser.setMiddleName(userUpdateRequest.getMiddleName());
+        }
+        if (userUpdateRequest.getBirthday() != null) {
+            savedUser.setBirthday(userUpdateRequest.getBirthday());
+        }
+        if (userUpdateRequest.getCountry() != null) {
+            savedUser.setCountry(userUpdateRequest.getCountry());
+        }
+        if (userUpdateRequest.getRegion() != null) {
+            savedUser.setRegion(userUpdateRequest.getRegion());
+        }
+        if (userUpdateRequest.getCity() != null) {
+            savedUser.setCity(userUpdateRequest.getCity());
+        }
+        if (userUpdateRequest.getPhone() != null) {
+            savedUser.setPhone(userUpdateRequest.getPhone());
+        }
+        if (userUpdateRequest.getPhotoLink() != null) {
+            savedUser.setPageLink(userUpdateRequest.getPageLink());
+        }
+        if (userUpdateRequest.getBackgroundLink() != null) {
+            savedUser.setBackgroundLink(userUpdateRequest.getBackgroundLink());
+        }
+        if (userUpdateRequest.getPageLink() != null) {
+            savedUser.setPageLink(userUpdateRequest.getPageLink());
+        }
+        if (userUpdateRequest.getStyle() != null) {
+            savedUser.setStyle(Style.valueOf(userUpdateRequest.getStyle()));
+        }
+        if (userUpdateRequest.getAboutMe() != null) {
+            savedUser.setAboutMe(userUpdateRequest.getAboutMe());
+        }
+        userRepository.save(savedUser);
+        return UserMapper.userToUserProfile(savedUser);
     }
 
 
@@ -88,10 +152,10 @@ public class UserServiceImpl implements UserService {
         boolean flag = true;
         Optional<User> savedUser = userRepository.findUserByEmailContainingIgnoreCase(email);
         if (savedUser.isPresent() && savedUser.get().getEmail().equals(email)) {
-            flag =true;
+            flag = true;
             throw new DuplicateException("Пользователь с указанным email уже зарегистрирован");
-        }else {
-            flag =false;
+        } else {
+            flag = false;
         }
         return flag;
     }
@@ -101,10 +165,10 @@ public class UserServiceImpl implements UserService {
         boolean flag = true;
         Optional<User> savedUser = userRepository.findUserByNicknameContainingIgnoreCase(nickname);
         if (savedUser.isPresent() && savedUser.get().getNickname().equals(nickname)) {
-            flag =true;
+            flag = true;
             throw new DuplicateException("Пользователь с указанным nickname: " + nickname + " уже зарегистрирован");
-        }else {
-            flag =false;
+        } else {
+            flag = false;
         }
         return flag;
     }

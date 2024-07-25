@@ -1,9 +1,6 @@
 package com.kardoaward.user.mapper;
 
-import com.kardoaward.user.dto.NewUserRequest;
-import com.kardoaward.user.dto.UserPage;
-import com.kardoaward.user.dto.UserProfile;
-import com.kardoaward.user.dto.UserUpdateRequest;
+import com.kardoaward.user.dto.*;
 import com.kardoaward.user.model.Style;
 import com.kardoaward.user.model.User;
 
@@ -39,7 +36,7 @@ public class UserMapper {
         user.setNickname(userUpdateRequest.getNickname());
         user.setFirstName(userUpdateRequest.getFirstName());
         user.setLastName(userUpdateRequest.getLastName());
-        user.setMiddleName(userUpdateRequest.getMiddle_name());
+        user.setMiddleName(userUpdateRequest.getMiddleName());
         user.setBirthday(userUpdateRequest.getBirthday());
         user.setCountry(userUpdateRequest.getCountry());
         user.setRegion(userUpdateRequest.getRegion());
@@ -57,7 +54,7 @@ public class UserMapper {
         UserProfile userProfile = new UserProfile();
         userProfile.setId(user.getId());
         userProfile.setEmail(user.getEmail());
-        userProfile.setPassword(user.getPassword());
+
         userProfile.setNickname(user.getNickname());
         userProfile.setFirstName(user.getFirstName());
         userProfile.setLastName(user.getLastName());
@@ -76,7 +73,26 @@ public class UserMapper {
         return userProfile;
     }
 
-    public static UserPage userToUserPage(User user) {
+    public static UserShortPage userToUserShortPage(User user) {
+        UserShortPage userShortPage = new UserShortPage();
+        userShortPage.setNickname(user.getNickname());
+        userShortPage.setFirstName(user.getFirstName());
+        userShortPage.setLastName(user.getLastName());
+        userShortPage.setPhotoLink(user.getPhotoLink());
+        userShortPage.setStyle(user.getStyle());
+        userShortPage.setState(user.getState());
+        return userShortPage;
+    }
+
+    public static List<UserShortPage> usersToUserShortPage(List<User> users) {
+        return users.stream()
+                .map(UserMapper::userToUserShortPage)
+                .collect(Collectors.toList());
+    }
+
+
+    //todo дополнить фичами
+    public static UserPage userToUserPage(User user, List<UserShortPage> iFollowings, List<UserShortPage> myFollowers) {
         UserPage userPage = new UserPage();
         userPage.setNickname(user.getNickname());
         userPage.setFirstName(user.getFirstName());
@@ -92,13 +108,9 @@ public class UserMapper {
         userPage.setStyle(user.getStyle());
         userPage.setAboutMe(user.getAboutMe());
         userPage.setState(user.getState());
+        userPage.setIFollowings(iFollowings);
+        userPage.setMyFollowers(myFollowers);
         return userPage;
-    }
-
-    public static List<UserPage> usersToUserPages(List<User> users) {
-        return users.stream()
-                .map(UserMapper::userToUserPage)
-                .collect(Collectors.toList());
     }
 
 }

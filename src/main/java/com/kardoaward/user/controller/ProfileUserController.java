@@ -21,7 +21,7 @@ public class ProfileUserController {
     public UserProfile updateUser(@PathVariable Long userId,
                                   @RequestBody @Valid UserUpdateRequest userUpdateRequest) {
         log.info("Request: update User profile");
-        return null;
+        return userService.updateUser(userId, userUpdateRequest);
     }
 
     @GetMapping("/{userId}")

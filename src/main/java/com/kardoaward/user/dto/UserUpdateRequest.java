@@ -23,7 +23,7 @@ public class UserUpdateRequest {
     private String nickname;
     private String firstName;
     private String lastName;
-    private String middle_name;
+    private String middleName;
     private LocalDate birthday;
     private String country;
     private String region;

@@ -1,5 +1,6 @@
 package com.kardoaward.subscription.model;
 
+import com.kardoaward.user.model.User;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -18,8 +19,10 @@ public class Subscription {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(name = "follower_id")
-    private Long followerId;
-    @Column(name = "following_id")
-    private Long followingId;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "follower_id")
+    private User follower;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "following_id")
+    private User following;
 }

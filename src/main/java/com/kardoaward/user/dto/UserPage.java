@@ -8,6 +8,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Data
 @Builder
@@ -15,6 +16,7 @@ import java.time.LocalDate;
 @AllArgsConstructor
 public class UserPage {
 
+    //todo возможно необходимо будет добавить userId для фронта
     private String nickname;
     private String firstName;
     private String lastName;
@@ -31,6 +33,8 @@ public class UserPage {
     private String aboutMe;
     private State state;
 
+    private List<UserShortPage> iFollowings;
+    private List<UserShortPage> myFollowers;
 
 
 }
