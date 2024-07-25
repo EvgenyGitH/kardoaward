@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.security.core.GrantedAuthority;
 
 @RestController
-@RequestMapping("/api/auth")
+@RequestMapping("/public/auth")
 public class AuthController {
 
     @Autowired
