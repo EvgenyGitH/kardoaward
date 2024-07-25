@@ -3,6 +3,7 @@ package com.kardoaward.user.service.impl;
 
 import com.kardoaward.exception.DataConflictException;
 import com.kardoaward.exception.DuplicateException;
+import com.kardoaward.security.jwt.CustomUserDetails;
 import com.kardoaward.user.dto.NewUserRequest;
 import com.kardoaward.user.dto.UserProfile;
 import com.kardoaward.user.mapper.UserMapper;
@@ -13,6 +14,8 @@ import com.kardoaward.user.repository.UserRepository;
 import com.kardoaward.user.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -20,7 +23,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import java.util.Optional;
 
 @RequiredArgsConstructor
@@ -66,8 +70,11 @@ public class UserServiceImpl implements UserService, UserDetailsService {
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         User user = userRepository.findByEmail(username);
         if (user == null) {
-            throw new UsernameNotFoundException("User not found");
+            throw new UsernameNotFoundException("Пользователь не найден");
         }
-        return new org.springframework.security.core.userdetails.User(user.getEmail(), user.getPassword(), new ArrayList<>());
+        List<GrantedAuthority> authorities = Collections.singletonList(
+                new SimpleGrantedAuthority(user.getUserRole().name())
+        );
+        return new CustomUserDetails(user.getEmail(), user.getPassword(), authorities);
     }
 }
