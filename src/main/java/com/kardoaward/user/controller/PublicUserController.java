@@ -4,12 +4,10 @@ import com.kardoaward.user.dto.NewUserRequest;
 import com.kardoaward.user.dto.UserPage;
 import com.kardoaward.user.dto.UserProfile;
 import com.kardoaward.user.dto.UserShortPage;
-import com.kardoaward.user.model.Style;
 import com.kardoaward.user.service.UserService;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.format.annotation.DateTimeFormat;
-import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -49,20 +47,20 @@ public class PublicUserController {
     }
 
     @GetMapping("/page/{userId}")
-    public UserPage getUserPageById (@PathVariable Long userId){
+    public UserPage getUserPageById(@PathVariable Long userId) {
         log.info("Request: get User profile");
         return userService.getUserPageById(userId);
     }
 
 
     @GetMapping("/checkEmail")
-    public boolean checkEmail(String email){
+    public boolean checkEmail(String email) {
         log.info("request: check Email ");
         return userService.checkEmail(email);
     }
 
     @GetMapping("/checkNickname")
-    public boolean checkNickname(String nickname){
+    public boolean checkNickname(String nickname) {
         log.info("request: check nickname ");
         return userService.checkNickname(nickname);
     }

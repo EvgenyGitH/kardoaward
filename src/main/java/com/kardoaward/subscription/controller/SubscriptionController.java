@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @AllArgsConstructor
 @Slf4j
-@RequestMapping(path = "/subscriptions")
+@RequestMapping(path = "/user/subscriptions")
 public class SubscriptionController {
     private final SubscriptionService subscriptionService;
 

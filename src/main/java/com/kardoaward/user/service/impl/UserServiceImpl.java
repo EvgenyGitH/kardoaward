@@ -13,6 +13,7 @@ import com.kardoaward.user.model.UserRole;
 import com.kardoaward.user.repository.UserRepository;
 import com.kardoaward.user.service.UserService;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -24,6 +25,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RequiredArgsConstructor
+@Slf4j
 @Service
 public class UserServiceImpl implements UserService {
 
@@ -44,6 +46,7 @@ public class UserServiceImpl implements UserService {
         try {
             savedUser = userRepository.save(user);
         } catch (DataIntegrityViolationException e) {
+            log.error("Пользователь с указанным email уже зарегистрирован");
             throw new DataConflictException("Пользователь с указанным email уже зарегистрирован");
         }
         return UserMapper.userToUserProfile(savedUser);
@@ -153,6 +156,7 @@ public class UserServiceImpl implements UserService {
         Optional<User> savedUser = userRepository.findUserByEmailContainingIgnoreCase(email);
         if (savedUser.isPresent() && savedUser.get().getEmail().equals(email)) {
             flag = true;
+            log.error("Пользователь с указанным email уже зарегистрирован");
             throw new DuplicateException("Пользователь с указанным email уже зарегистрирован");
         } else {
             flag = false;
@@ -166,7 +170,8 @@ public class UserServiceImpl implements UserService {
         Optional<User> savedUser = userRepository.findUserByNicknameContainingIgnoreCase(nickname);
         if (savedUser.isPresent() && savedUser.get().getNickname().equals(nickname)) {
             flag = true;
-            throw new DuplicateException("Пользователь с указанным nickname: " + nickname + " уже зарегистрирован");
+            log.error("Пользователь, с указанным nickname, уже зарегистрирован");
+            throw new DuplicateException("Пользователь, с указанным nickname: " + nickname + ", уже зарегистрирован");
         } else {
             flag = false;
         }
