@@ -12,7 +12,7 @@ import javax.validation.Valid;
 @RestController
 @AllArgsConstructor
 @Slf4j
-@RequestMapping(path = "/users")
+@RequestMapping(path = "user/users")
 public class ProfileUserController {
 
     private final UserService userService;

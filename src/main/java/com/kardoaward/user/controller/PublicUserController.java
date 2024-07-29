@@ -23,11 +23,11 @@ import java.util.List;
 public class PublicUserController {
     private final UserService userService;
 
-    @PostMapping
-    public UserProfile create(@RequestBody @Valid NewUserRequest newUserRequest) {
-        log.info("request: create User");
-        return userService.createUser(newUserRequest);
-    }
+//    @PostMapping
+//    public UserProfile create(@RequestBody @Valid NewUserRequest newUserRequest) {
+//        log.info("request: create User");
+//        return userService.createUser(newUserRequest);
+//    }
 
     @GetMapping("/search")
     public List<UserShortPage> findUser(@RequestParam(required = false) String nickname,
