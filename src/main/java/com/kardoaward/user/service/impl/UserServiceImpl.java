@@ -65,7 +65,7 @@ public class UserServiceImpl implements UserService, UserDetailsService {
             log.error("Пользователь с указанным email уже зарегистрирован");
             throw new DataConflictException("Пользователь с указанным email уже зарегистрирован");
         }
-        return UserMapper.UserToUserProfile(savedUser);
+        return UserMapper.userToUserProfile(savedUser);
     }
 
     @Override
