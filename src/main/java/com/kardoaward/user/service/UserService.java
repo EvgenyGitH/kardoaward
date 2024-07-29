@@ -1,14 +1,27 @@
 package com.kardoaward.user.service;
 
-import com.kardoaward.user.dto.NewUserRequest;
-import com.kardoaward.user.dto.UserProfile;
+import com.kardoaward.user.dto.*;
+
+import java.time.LocalDate;
+import java.util.List;
 
 public interface UserService {
 
     UserProfile createUser(NewUserRequest newUserRequest);
 
+    List<UserShortPage> findUserByParam(String nickname, String firstName, String lastName, String middleName, LocalDate birthday, String country, String region, String city, String style, int from, int size);
 
-    void checkEmail(String email);
+    UserPage getUserPageById(Long userId);
 
-    void checkNickname(String nickname);
+
+    UserProfile updateUser(Long userId, UserUpdateRequest userUpdateRequest);
+
+    UserProfile getUserById(Long userId);
+
+    UserProfile deleteUserById(Long userId);
+
+
+    boolean checkEmail(String email);
+
+    boolean checkNickname(String nickname);
 }

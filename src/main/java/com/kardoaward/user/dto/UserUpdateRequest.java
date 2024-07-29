@@ -1,23 +1,25 @@
 package com.kardoaward.user.dto;
 
-import com.kardoaward.user.model.State;
-import com.kardoaward.user.model.Style;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
+
 
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class UserProfile {
+public class UserUpdateRequest {
 
-    private Long id;
+    @Email
     private String email;
-
+    private String password;
     private String nickname;
     private String firstName;
     private String lastName;
@@ -30,8 +32,8 @@ public class UserProfile {
     private String photoLink;
     private String backgroundLink;
     private String pageLink;
-    private Style style;
+    private String style;
     private String aboutMe;
-    private State state;
+
 
 }

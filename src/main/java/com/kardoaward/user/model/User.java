@@ -1,12 +1,12 @@
 package com.kardoaward.user.model;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.Email;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.validation.constraints.Email;
 import java.time.LocalDate;
 
 @Entity
@@ -42,6 +42,8 @@ public class User {
     private String pageLink;
     @Column(name = "about_me")
     private String aboutMe;
+    @Enumerated(EnumType.STRING)
+    private Style style;  //Enum: [WORKOUT, HIPHOP, BREAKING, BMX, GRAFFITY, DJING и др.]
     @Column(name = "user_role")
     @Enumerated(EnumType.STRING)
     private UserRole userRole;  //Enum: [ADMIN, USER]
