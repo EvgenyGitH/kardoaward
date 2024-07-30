@@ -10,6 +10,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;
 import jakarta.validation.constraints.*;
+import jakarta.validation.Valid;
 
 //import javax.validation.Valid;
 //import javax.validation.constraints.Positive;
@@ -24,11 +25,11 @@ import java.util.List;
 public class PublicUserController {
     private final UserService userService;
 
-//    @PostMapping
-//    public UserProfile create(@RequestBody @Valid NewUserRequest newUserRequest) {
-//        log.info("request: create User");
-//        return userService.createUser(newUserRequest);
-//    }
+    @PostMapping
+    public UserProfile create(@RequestBody @Valid NewUserRequest newUserRequest) {
+        log.info("request: create User");
+        return userService.createUser(newUserRequest);
+    }
 
     @GetMapping("/search")
     public List<UserShortPage> findUser(@RequestParam(required = false) String nickname,

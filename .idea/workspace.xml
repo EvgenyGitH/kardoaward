@@ -4,17 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4b70baa4-eb5c-4146-be79-5bb36d60cce0" name="Changes" comment="init">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/kardoaward/config/SwaggerConfig.java" afterDir="false" />
+    <list default="true" id="4b70baa4-eb5c-4146-be79-5bb36d60cce0" name="Changes" comment="добваил swgger">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kardoaward/security/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kardoaward/security/config/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kardoaward/subscription/model/Subscription.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kardoaward/subscription/model/Subscription.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kardoaward/user/controller/ProfileUserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kardoaward/user/controller/ProfileUserController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/kardoaward/user/controller/PublicUserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kardoaward/user/controller/PublicUserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kardoaward/user/dto/NewUserRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kardoaward/user/dto/NewUserRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kardoaward/user/dto/UserUpdateRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kardoaward/user/dto/UserUpdateRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kardoaward/user/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kardoaward/user/model/User.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,10 +55,20 @@
     </recent_temporary>
   </component>
   <component name="TaskManager">
+    <task id="LOCAL-00001" summary="добваил swgger">
+      <option name="closed" value="true" />
+      <created>1722281721162</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1722281721162</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="init" />
-    <option name="LAST_COMMIT_MESSAGE" value="init" />
+    <MESSAGE value="добваил swgger" />
+    <option name="LAST_COMMIT_MESSAGE" value="добваил swgger" />
   </component>
 </project>
