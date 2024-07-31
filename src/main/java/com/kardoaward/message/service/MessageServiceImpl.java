@@ -70,4 +70,5 @@ public class MessageServiceImpl implements MessageService {
         return MessageMapper.WithShortUserfromMessage(messageRepository.save(message));
     }
 
+
 }
