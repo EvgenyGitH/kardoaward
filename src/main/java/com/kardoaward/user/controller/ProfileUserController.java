@@ -7,12 +7,13 @@ import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.Valid;
+//import javax.validation.Valid;
+import jakarta.validation.Valid;
 
 @RestController
 @AllArgsConstructor
 @Slf4j
-@RequestMapping(path = "/users")
+@RequestMapping(path = "user/users")
 public class ProfileUserController {
 
     private final UserService userService;
