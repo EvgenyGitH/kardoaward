@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @AllArgsConstructor
 @Slf4j
-@RequestMapping(path = "users/user")
+@RequestMapping(path = "user/users")
 public class ProfileUserController {
 
     private final UserService userService;
