@@ -4,7 +4,29 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1cff83f3-1af1-419a-a6e0-e26cdf715b2b" name="Changes" comment="init" />
+    <list default="true" id="1cff83f3-1af1-419a-a6e0-e26cdf715b2b" name="Changes" comment="init">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/kardoaward/message/controller/MessageController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/kardoaward/message/dto/MessageWithShortUser.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/kardoaward/message/dto/NewMessage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/kardoaward/message/mapper/MessageMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kardoaward/message/model/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kardoaward/message/model/Message.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kardoaward/message/repository/MessageRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kardoaward/message/repository/MessageRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kardoaward/message/service/MessageService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kardoaward/message/service/MessageService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kardoaward/message/service/MessageServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kardoaward/message/service/MessageServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kardoaward/subscription/controller/SubscriptionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kardoaward/subscription/controller/SubscriptionController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kardoaward/subscription/model/Subscription.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kardoaward/subscription/model/Subscription.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kardoaward/user/controller/ProfileUserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kardoaward/user/controller/ProfileUserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kardoaward/user/controller/PublicUserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kardoaward/user/controller/PublicUserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kardoaward/user/dto/NewUserRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kardoaward/user/dto/NewUserRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kardoaward/user/dto/UserPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kardoaward/user/dto/UserPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kardoaward/user/dto/UserShortPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kardoaward/user/dto/UserShortPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kardoaward/user/dto/UserUpdateRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kardoaward/user/dto/UserUpdateRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kardoaward/user/mapper/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kardoaward/user/mapper/UserMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kardoaward/user/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kardoaward/user/model/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/schema.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/schema.sql" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -131,7 +153,7 @@
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/com/kardoaward/subscription/controller/SubscriptionController.java</url>
           <line>22</line>
-          <properties class="com.kardoaward.subscription.controller.SubscriptionController">
+          <properties class="com.kardoaward.subscription.controller.SubscriptionController" method="deleteSubscription">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
           </properties>
