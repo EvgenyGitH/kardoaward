@@ -1,6 +1,5 @@
 package com.kardoaward.message.model;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import com.kardoaward.user.model.User;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -27,8 +26,9 @@ public class Message {
     @JoinColumn(name = "recipient_id")
     private User recipient;
     private String text;
- //   @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss")
+    @Column(name = "date_message")
     private LocalDateTime dateMessage;
+    @Column(name = "was_read")
     private boolean wasRead;
 
 }

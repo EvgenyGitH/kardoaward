@@ -1,12 +1,14 @@
 package com.kardoaward.user.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import jakarta.validation.constraints.*;
+
 //import javax.validation.constraints.Email;
+
 import java.time.LocalDate;
 
 @Entity

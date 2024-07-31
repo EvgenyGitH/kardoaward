@@ -3,12 +3,13 @@ package com.kardoaward.user.controller;
 import com.kardoaward.user.dto.UserProfile;
 import com.kardoaward.user.dto.UserUpdateRequest;
 import com.kardoaward.user.service.UserService;
+import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
 //import javax.validation.Valid;
-import jakarta.validation.Valid;
+
 
 @RestController
 @AllArgsConstructor

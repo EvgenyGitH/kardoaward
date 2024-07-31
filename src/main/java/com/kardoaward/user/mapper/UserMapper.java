@@ -75,6 +75,7 @@ public class UserMapper {
 
     public static UserShortPage userToUserShortPage(User user) {
         UserShortPage userShortPage = new UserShortPage();
+        userShortPage.setId(user.getId());
         userShortPage.setNickname(user.getNickname());
         userShortPage.setFirstName(user.getFirstName());
         userShortPage.setLastName(user.getLastName());
@@ -94,6 +95,7 @@ public class UserMapper {
     //todo дополнить фичами
     public static UserPage userToUserPage(User user, List<UserShortPage> iFollowings, List<UserShortPage> myFollowers) {
         UserPage userPage = new UserPage();
+        userPage.setId(user.getId());
         userPage.setNickname(user.getNickname());
         userPage.setFirstName(user.getFirstName());
         userPage.setLastName(user.getLastName());

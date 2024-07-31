@@ -5,12 +5,15 @@ import com.kardoaward.user.dto.UserPage;
 import com.kardoaward.user.dto.UserProfile;
 import com.kardoaward.user.dto.UserShortPage;
 import com.kardoaward.user.service.UserService;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.Positive;
+import jakarta.validation.constraints.PositiveOrZero;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
-import jakarta.validation.constraints.*;
-import jakarta.validation.Valid;
+
 
 //import javax.validation.Valid;
 //import javax.validation.constraints.Positive;
@@ -21,6 +24,7 @@ import java.util.List;
 @RestController
 @AllArgsConstructor
 @Slf4j
+@Validated
 @RequestMapping(path = "/public/users")
 public class PublicUserController {
     private final UserService userService;
