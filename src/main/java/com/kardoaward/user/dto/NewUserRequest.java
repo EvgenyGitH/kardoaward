@@ -31,7 +31,6 @@ public class NewUserRequest {
     private String firstName;
     @NotBlank
     private String lastName;
-    @NotBlank
     private String middle_name;
     @NotBlank
     private LocalDate birthday;
