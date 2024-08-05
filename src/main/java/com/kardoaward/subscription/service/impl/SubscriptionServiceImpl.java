@@ -45,7 +45,6 @@ public class SubscriptionServiceImpl implements SubscriptionService {
     public List<UserShortPage> getUserFollowers(Long userId) {
         List<UserShortPage> followers;
         List<Subscription> userFollowers = subscriptionRepository.findAllByFollowingId(userId);
-
         if (!userFollowers.isEmpty()) {
             followers = UserMapper.usersToUserShortPage(userFollowers.stream()
                     .map(Subscription::getFollower)
