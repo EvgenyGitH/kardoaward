@@ -26,6 +26,8 @@ public class UserProfile {
     private String country;
     private String region;
     private String city;
+    private String citizenship;
+    private String gender;
     private String phone;
     private String photoLink;
     private String backgroundLink;
