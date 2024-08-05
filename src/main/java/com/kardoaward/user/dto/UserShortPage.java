@@ -13,7 +13,7 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @AllArgsConstructor
 public class UserShortPage {
-
+    private Long id;
     private String nickname;
     private String firstName;
     private String lastName;
