@@ -4,6 +4,7 @@ import com.kardoaward.competitions.dto.CompetitionDTO;
 import com.kardoaward.competitions.mapper.CompetitionMapper;
 import com.kardoaward.competitions.model.Competition;
 import com.kardoaward.competitions.model.Direction;
+import com.kardoaward.competitions.model.Location;
 import com.kardoaward.competitions.model.ParticipationType;
 import com.kardoaward.competitions.repository.CompetitionRepository;
 import com.kardoaward.competitions.repository.DirectionRepository;
@@ -41,7 +42,16 @@ public class CompetitionServiceImpl implements CompetitionService {
                         .orElseThrow(() -> new RuntimeException("Participation Type not found: " + name)))
                 .collect(Collectors.toSet());
 
-        return competitionRepository.save(CompetitionMapper.competitionFromDTO(competitionDTO, participationTypes, directions));
+        Competition competition = CompetitionMapper.competitionFromDTO(competitionDTO, participationTypes, directions);
+
+        for (String locationName : competitionDTO.getLocations()) {
+            Location location = new Location();
+            location.setName(locationName);
+            location.setCompetition(competition);
+            competition.getLocations().add(location);
+        }
+
+        return competitionRepository.save(competition);
     }
 
     @Override
@@ -57,5 +67,19 @@ public class CompetitionServiceImpl implements CompetitionService {
     @Override
     public void deleteById(Long id) {
         competitionRepository.deleteById(id);
+    }
+
+    @Override
+    public Direction addDirection(String name) {
+        Direction direction = new Direction();
+        direction.setName(name);
+        return directionRepository.save(direction);
+    }
+
+    @Override
+    public ParticipationType addParticipationType(String name) {
+        ParticipationType participationType = new ParticipationType();
+        participationType.setName(name);
+        return participationTypeRepository.save(participationType);
     }
 }

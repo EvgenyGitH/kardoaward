@@ -23,10 +23,8 @@ public class Competition {
     private LocalDateTime startDate;
     private LocalDateTime endDate;
 
-    @ElementCollection
-    @CollectionTable(name = "competition_locations", joinColumns = @JoinColumn(name = "competition_id"))
-    @Column(name = "location")
-    private Set<String> locations = new HashSet<>();
+    @OneToMany(mappedBy = "competition", cascade = CascadeType.ALL, orphanRemoval = true)
+    private Set<Location> locations = new HashSet<>();
 
     @ManyToMany
     @JoinTable(
@@ -43,5 +41,4 @@ public class Competition {
             inverseJoinColumns = @JoinColumn(name = "participation_type_id")
     )
     private Set<ParticipationType> participationTypes = new HashSet<>();
-
 }

@@ -4,9 +4,6 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.HashSet;
-import java.util.Set;
-
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
@@ -19,9 +16,4 @@ public class Direction {
 
     private String name;
 
-    @ManyToMany(mappedBy = "directions")
-    private Set<Competition> competitions = new HashSet<>();
-
-    @ManyToMany(mappedBy = "directions")
-    private Set<Application> applications = new HashSet<>();
 }
