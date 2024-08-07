@@ -4,11 +4,9 @@ package com.kardoaward.user.service.impl;
 import com.kardoaward.exception.DataConflictException;
 import com.kardoaward.exception.DuplicateException;
 import com.kardoaward.exception.NotFoundException;
+import com.kardoaward.security.jwt.CustomUserDetails;
 import com.kardoaward.subscription.service.SubscriptionService;
 import com.kardoaward.user.dto.*;
-import com.kardoaward.security.jwt.CustomUserDetails;
-import com.kardoaward.user.dto.NewUserRequest;
-import com.kardoaward.user.dto.UserProfile;
 import com.kardoaward.user.mapper.UserMapper;
 import com.kardoaward.user.model.State;
 import com.kardoaward.user.model.Style;
@@ -31,7 +29,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDate;
-import java.util.List;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
@@ -41,10 +38,14 @@ import java.util.Optional;
 @Service
 public class UserServiceImpl implements UserService, UserDetailsService {
 
+    Long count = 0L;
     private final UserRepository userRepository;
     private final SubscriptionService subscriptionService;
     private final PasswordEncoder passwordEncoder;
 
+    private Long getNumber() {
+        return ++count;
+    }
 
     // -- public -- //
     @Override
@@ -52,10 +53,13 @@ public class UserServiceImpl implements UserService, UserDetailsService {
     public UserProfile createUser(NewUserRequest newUserRequest) {
         User user = UserMapper.newUserRequestToUser(newUserRequest);
         checkEmail(newUserRequest.getEmail()); // удалить если будут добавлены предварительные экраны проверки почты и ника
-        checkNickname(newUserRequest.getNickname());
+        if (user.getNickname() == null) {
+            user.setNickname(createNickname());
+        } else {
+            checkNickname(newUserRequest.getNickname());// удалить, если поле nickName будет всегда null
+        }
         String encodedPassword = passwordEncoder.encode(newUserRequest.getPassword());
         user.setPassword(encodedPassword);
-        checkNickname(newUserRequest.getNickname()); // удалить если будут добавлены предварительные экраны проверки почты и ника
         user.setState(State.ACTIVE);
         user.setUserRole(UserRole.USER);
         User savedUser;
@@ -125,6 +129,12 @@ public class UserServiceImpl implements UserService, UserDetailsService {
         if (userUpdateRequest.getCity() != null) {
             savedUser.setCity(userUpdateRequest.getCity());
         }
+        if (userUpdateRequest.getCitizenship() != null) {
+            savedUser.setCitizenship(userUpdateRequest.getCitizenship());
+        }
+        if (userUpdateRequest.getGender() != null) {
+            savedUser.setGender(userUpdateRequest.getGender());
+        }
         if (userUpdateRequest.getPhone() != null) {
             savedUser.setPhone(userUpdateRequest.getPhone());
         }
@@ -165,8 +175,6 @@ public class UserServiceImpl implements UserService, UserDetailsService {
     }
 
 
-
-
     @Override
     public boolean checkEmail(String email) {
         boolean flag = true;
@@ -185,7 +193,7 @@ public class UserServiceImpl implements UserService, UserDetailsService {
     public boolean checkNickname(String nickname) {
         boolean flag = true;
         Optional<User> savedUser = userRepository.findUserByNicknameContainingIgnoreCase(nickname);
-        if (savedUser.isPresent() && savedUser.get().getNickname().equals(nickname)) {
+        if (savedUser.isPresent()) {
             flag = true;
             log.error("Пользователь, с указанным nickname, уже зарегистрирован");
             throw new DuplicateException("Пользователь, с указанным nickname: " + nickname + ", уже зарегистрирован");
@@ -195,6 +203,20 @@ public class UserServiceImpl implements UserService, UserDetailsService {
         return flag;
     }
 
+    @Override
+    public String createNickname() {
+        String nickname = "User" + getNumber();
+        boolean flag = true;
+        while (flag) {
+            Optional<User> savedUser = userRepository.findUserByNicknameContainingIgnoreCase(nickname);
+            if (savedUser.isPresent()) {
+                nickname = "User" + getNumber();
+            } else {
+                flag = false;
+            }
+        }
+        return nickname;
+    }
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {

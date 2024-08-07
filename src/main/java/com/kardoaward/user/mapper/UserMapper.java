@@ -63,6 +63,8 @@ public class UserMapper {
         userProfile.setCountry(user.getCountry());
         userProfile.setRegion(user.getRegion());
         userProfile.setCity(user.getCity());
+        userProfile.setCitizenship(user.getCitizenship());
+        userProfile.setGender(user.getGender());
         userProfile.setPhone(user.getPhone());
         userProfile.setPhotoLink(user.getPhotoLink());
         userProfile.setBackgroundLink(user.getBackgroundLink());
