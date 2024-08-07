@@ -4,18 +4,30 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4b70baa4-eb5c-4146-be79-5bb36d60cce0" name="Changes" comment="добваил swgger">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/kardoaward/competitions/model/Location.java" afterDir="false" />
+    <list default="true" id="4b70baa4-eb5c-4146-be79-5bb36d60cce0" name="Changes" comment="Добавил аннотации в регистрацию">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/kardoaward/competitions/dto/DirectionDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/kardoaward/competitions/dto/LocationDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/kardoaward/competitions/dto/ParticipationTypeDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/kardoaward/competitions/repository/LocationRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kardoaward/competitions/controller/ApplicationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kardoaward/competitions/controller/ApplicationController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/kardoaward/competitions/controller/CompetitionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kardoaward/competitions/controller/CompetitionController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kardoaward/competitions/dto/ApplicationDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kardoaward/competitions/dto/ApplicationDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/kardoaward/competitions/dto/CompetitionDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kardoaward/competitions/dto/CompetitionDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kardoaward/competitions/mapper/CompetitionMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kardoaward/competitions/mapper/CompetitionMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kardoaward/competitions/model/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kardoaward/competitions/model/Application.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/kardoaward/competitions/model/Competition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kardoaward/competitions/model/Competition.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/kardoaward/competitions/model/Direction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kardoaward/competitions/model/Direction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kardoaward/competitions/model/Location.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kardoaward/competitions/model/Location.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/kardoaward/competitions/model/ParticipationType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kardoaward/competitions/model/ParticipationType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kardoaward/competitions/repository/ApplicationRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kardoaward/competitions/repository/ApplicationRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kardoaward/competitions/repository/CompetitionRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kardoaward/competitions/repository/CompetitionRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kardoaward/competitions/repository/DirectionRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kardoaward/competitions/repository/DirectionRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kardoaward/competitions/repository/ParticipationTypeRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kardoaward/competitions/repository/ParticipationTypeRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kardoaward/competitions/service/ApplicationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kardoaward/competitions/service/ApplicationService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/kardoaward/competitions/service/CompetitionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kardoaward/competitions/service/CompetitionService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/kardoaward/competitions/service/impl/ApplicationServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kardoaward/competitions/service/impl/ApplicationServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/kardoaward/competitions/service/impl/CompetitionServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kardoaward/competitions/service/impl/CompetitionServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kardoaward/security/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kardoaward/security/config/SecurityConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/schema.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/schema.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -39,6 +51,9 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 5
@@ -99,6 +114,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="init" />
     <MESSAGE value="добваил swgger" />
-    <option name="LAST_COMMIT_MESSAGE" value="добваил swgger" />
+    <MESSAGE value="Добавил аннотации в регистрацию" />
+    <option name="LAST_COMMIT_MESSAGE" value="Добавил аннотации в регистрацию" />
   </component>
 </project>

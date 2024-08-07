@@ -3,19 +3,17 @@ package com.kardoaward.competitions.service.impl;
 import com.kardoaward.competitions.dto.ApplicationDTO;
 import com.kardoaward.competitions.model.Application;
 import com.kardoaward.competitions.model.Competition;
-import com.kardoaward.competitions.model.Direction;
 import com.kardoaward.competitions.repository.ApplicationRepository;
 import com.kardoaward.competitions.repository.CompetitionRepository;
-import com.kardoaward.competitions.repository.DirectionRepository;
 import com.kardoaward.competitions.service.ApplicationService;
 import com.kardoaward.user.model.User;
+import com.kardoaward.user.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.Set;
-import java.util.stream.Collectors;
+
 
 @Service
 public class ApplicationServiceImpl implements ApplicationService {
@@ -26,23 +24,21 @@ public class ApplicationServiceImpl implements ApplicationService {
     private CompetitionRepository competitionRepository;
 
     @Autowired
-    private DirectionRepository directionRepository;
+    private UserRepository userRepository;
 
     @Override
-    public Application createApplication(ApplicationDTO applicationDTO, User user) {
+    public Application submitApplication(ApplicationDTO applicationDTO) {
         Competition competition = competitionRepository.findById(applicationDTO.getCompetitionId())
-                .orElseThrow(() -> new RuntimeException("Competition not found"));
+                .orElseThrow(() -> new RuntimeException("Competition not found: " + applicationDTO.getCompetitionId()));
 
-        Set<Direction> directions = applicationDTO.getDirections().stream()
-                .map(name -> directionRepository.findByName(name)
-                        .orElseThrow(() -> new RuntimeException("Direction not found: " + name)))
-                .collect(Collectors.toSet());
+        User user = userRepository.findById(applicationDTO.getUserId())
+                .orElseThrow(() -> new RuntimeException("User not found: " + applicationDTO.getUserId()));
 
         Application application = new Application();
         application.setCompetition(competition);
         application.setUser(user);
-        application.setDirections(directions);
-        application.setStatus("отправлена");
+        application.setApplicationType(applicationDTO.getApplicationType());
+        application.setStatus(applicationDTO.getStatus());
 
         return applicationRepository.save(application);
     }

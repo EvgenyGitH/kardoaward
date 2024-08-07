@@ -8,11 +8,8 @@ import java.util.List;
 import java.util.Optional;
 
 public interface ApplicationService {
-    Application createApplication(ApplicationDTO applicationDTO, User user);
-
+    Application submitApplication(ApplicationDTO applicationDTO);
     List<Application> findAll();
-
     Optional<Application> findById(Long id);
-
     void deleteById(Long id);
 }

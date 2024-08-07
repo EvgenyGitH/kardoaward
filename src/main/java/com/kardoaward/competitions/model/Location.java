@@ -16,8 +16,4 @@ public class Location {
     private Long id;
 
     private String name;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "competition_id")
-    private Competition competition;
 }

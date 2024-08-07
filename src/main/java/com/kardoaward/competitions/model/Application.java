@@ -20,18 +20,13 @@ public class Application {
     private Long id;
 
     @ManyToOne
+    @JoinColumn(name = "competition_id", nullable = false)
     private Competition competition;
 
     @ManyToOne
+    @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
+    private String applicationType;
     private String status;
-
-    @ManyToMany
-    @JoinTable(
-            name = "application_directions",
-            joinColumns = @JoinColumn(name = "application_id"),
-            inverseJoinColumns = @JoinColumn(name = "direction_id")
-    )
-    private Set<Direction> directions = new HashSet<>();
 }

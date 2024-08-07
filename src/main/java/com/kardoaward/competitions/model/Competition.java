@@ -5,8 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDateTime;
-import java.util.HashSet;
+import java.time.LocalDate;
 import java.util.Set;
 
 @AllArgsConstructor
@@ -20,11 +19,8 @@ public class Competition {
     private Long id;
 
     private String competitionType;
-    private LocalDateTime startDate;
-    private LocalDateTime endDate;
-
-    @OneToMany(mappedBy = "competition", cascade = CascadeType.ALL, orphanRemoval = true)
-    private Set<Location> locations = new HashSet<>();
+    private LocalDate startDate;
+    private LocalDate endDate;
 
     @ManyToMany
     @JoinTable(
@@ -32,7 +28,7 @@ public class Competition {
             joinColumns = @JoinColumn(name = "competition_id"),
             inverseJoinColumns = @JoinColumn(name = "direction_id")
     )
-    private Set<Direction> directions = new HashSet<>();
+    private Set<Direction> directions;
 
     @ManyToMany
     @JoinTable(
@@ -40,5 +36,13 @@ public class Competition {
             joinColumns = @JoinColumn(name = "competition_id"),
             inverseJoinColumns = @JoinColumn(name = "participation_type_id")
     )
-    private Set<ParticipationType> participationTypes = new HashSet<>();
+    private Set<ParticipationType> participationTypes;
+
+    @ManyToMany
+    @JoinTable(
+            name = "competition_locations",
+            joinColumns = @JoinColumn(name = "competition_id"),
+            inverseJoinColumns = @JoinColumn(name = "location_id")
+    )
+    private Set<Location> locations;
 }

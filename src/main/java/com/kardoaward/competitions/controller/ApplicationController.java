@@ -8,39 +8,33 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("user/applications")
 public class ApplicationController {
-
     @Autowired
     private ApplicationService applicationService;
 
     @PostMapping
-    public ResponseEntity<Application> createApplication(@RequestBody ApplicationDTO applicationDTO, @RequestParam Long userId) {
-//        User user = userRepository.findById(userId)
-//                .orElseThrow(() -> new RuntimeException("User not found"));
-//        Application application = applicationService.createApplication(applicationDTO, user);
-//        return ResponseEntity.ok(application);
-        return null;
+    public ResponseEntity<Application> submitApplication(@RequestBody ApplicationDTO applicationDTO) {
+        return ResponseEntity.ok(applicationService.submitApplication(applicationDTO));
     }
 
     @GetMapping
-    public ResponseEntity<List<Application>> getAllApplications() {
-        List<Application> applications = applicationService.findAll();
-        return ResponseEntity.ok(applications);
+    public ResponseEntity<List<Application>> findAll() {
+        return ResponseEntity.ok(applicationService.findAll());
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Application> getApplicationById(@PathVariable Long id) {
-        return applicationService.findById(id)
-                .map(ResponseEntity::ok)
-                .orElse(ResponseEntity.notFound().build());
+    public ResponseEntity<Application> findById(@PathVariable Long id) {
+        Optional<Application> application = applicationService.findById(id);
+        return application.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteApplication(@PathVariable Long id) {
+    public ResponseEntity<Void> deleteById(@PathVariable Long id) {
         applicationService.deleteById(id);
-        return ResponseEntity.noContent().build();
+        return ResponseEntity.ok().build();
     }
 }
