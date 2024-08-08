@@ -86,8 +86,10 @@ public class ApplicationServiceImpl implements ApplicationService {
     }
 
     @Override
-    public Optional<Application> findById(Long id) {
-        return applicationRepository.findById(id);
+    public ApplicationResponseDTO findById(Long id) {
+        Application application = applicationRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Application not found: " + id));
+        return ApplicationMapper.convertToDTO(application);
     }
 
     @Override
@@ -99,8 +101,22 @@ public class ApplicationServiceImpl implements ApplicationService {
     public ApplicationResponseDTO updateStatus(Long id, String status) {
         Application application = applicationRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Application not found: " + id));
-        application.setStatus(status);
+
+        String internalStatus = mapExternalStatusToInternal(status);
+
+        application.setStatus(internalStatus);
         applicationRepository.save(application);
         return ApplicationMapper.convertToDTO(application);
+    }
+    @Override
+    public String mapExternalStatusToInternal(String status) {
+        switch (status) {
+            case "accepted":
+                return "Принята";
+            case "rejected":
+                return "Отклонена";
+            default:
+                throw new RuntimeException("Invalid status: " + status);
+        }
     }
 }

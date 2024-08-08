@@ -5,6 +5,7 @@ import com.kardoaward.competitions.dto.DirectionDTO;
 import com.kardoaward.competitions.dto.LocationDTO;
 import com.kardoaward.competitions.dto.ParticipationTypeDTO;
 import com.kardoaward.competitions.mapper.CompetitionMapper;
+import com.kardoaward.competitions.mapper.CompetitionSummaryDTO;
 import com.kardoaward.competitions.model.Competition;
 import com.kardoaward.competitions.model.Direction;
 import com.kardoaward.competitions.model.Location;
@@ -18,7 +19,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -57,13 +57,22 @@ public class CompetitionServiceImpl implements CompetitionService {
     }
 
     @Override
-    public List<Competition> findAll() {
-        return competitionRepository.findAll();
+    public List<CompetitionSummaryDTO> findAll() {
+        return competitionRepository.findAll().stream()
+                .map(competition -> new CompetitionSummaryDTO(
+                        competition.getId(),
+                        competition.getCompetitionType(),
+                        competition.getStartDate(),
+                        competition.getEndDate()
+                ))
+                .collect(Collectors.toList());
     }
 
     @Override
-    public Optional<Competition> findById(Long id) {
-        return competitionRepository.findById(id);
+    public Competition findById(Long id) {
+        Competition competition = competitionRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Competition not found: " + id));
+        return competition;
     }
 
     @Override

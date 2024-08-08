@@ -4,38 +4,58 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4c75cd17-58cd-4e53-af0a-064394a9825b" name="Changes" comment="выбираю бл">
+    <list default="true" id="4b70baa4-eb5c-4146-be79-5bb36d60cce0" name="Changes" comment="Добавил аннотации в регистрацию">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/kardoaward/competitions/mapper/CompetitionSummaryDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kardoaward/competitions/dto/ApplicationDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kardoaward/competitions/dto/ApplicationDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kardoaward/competitions/controller/AdminApplicationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kardoaward/competitions/controller/AdminApplicationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kardoaward/competitions/controller/ApplicationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kardoaward/competitions/controller/ApplicationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kardoaward/competitions/controller/CompetitionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kardoaward/competitions/controller/CompetitionController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kardoaward/competitions/service/ApplicationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kardoaward/competitions/service/ApplicationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kardoaward/competitions/service/CompetitionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kardoaward/competitions/service/CompetitionService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/kardoaward/competitions/service/impl/ApplicationServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kardoaward/competitions/service/impl/ApplicationServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kardoaward/competitions/service/impl/CompetitionServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kardoaward/competitions/service/impl/CompetitionServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="Git.Merge.Settings">
-    <option name="BRANCH" value="main" />
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="package-info" />
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 6
-}]]></component>
-  <component name="ProjectId" id="2kNWDGLiukTz9ncCXIjYZbpBO9D" />
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 5
+}</component>
+  <component name="ProjectId" id="2kESQgSZWwzFtnIbGDTyYLvRkxX" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
     <option name="showVisibilityIcons" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.KardoawardApplication.executor": "Debug",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "kotlin-language-version-configured": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.KardoawardApplication.executor&quot;: &quot;Debug&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="KardoawardApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.kardoaward.KardoawardApplication" />
@@ -58,40 +78,41 @@
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
+    <task id="LOCAL-00001" summary="добваил swgger">
+      <option name="closed" value="true" />
+      <created>1722281721162</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1722281721162</updated>
+    </task>
     <task active="true" id="Default" summary="Default task">
-      <changelist id="4c75cd17-58cd-4e53-af0a-064394a9825b" name="Changes" comment="выбираю бл" />
-      <created>1723124395657</created>
+      <changelist id="4b70baa4-eb5c-4146-be79-5bb36d60cce0" name="Changes" comment="добваил swgger" />
+      <created>1722847230386</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1723124395657</updated>
+      <updated>1722847230386</updated>
     </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="выбираю бл" />
-    <option name="LAST_COMMIT_MESSAGE" value="выбираю бл" />
+    <MESSAGE value="init" />
+    <MESSAGE value="добваил swgger" />
+    <MESSAGE value="Добавил аннотации в регистрацию" />
+    <option name="LAST_COMMIT_MESSAGE" value="Добавил аннотации в регистрацию" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/kardoaward/competitions/service/impl/ApplicationServiceImpl.java</url>
-          <line>38</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/kardoaward/competitions/service/impl/ApplicationServiceImpl.java</url>
-          <line>41</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/com/kardoaward/competitions/controller/ApplicationController.java</url>
-          <line>20</line>
-          <properties class="com.kardoaward.competitions.controller.ApplicationController" method="submitApplication">
+          <url>file://$PROJECT_DIR$/src/main/java/com/kardoaward/competitions/controller/CompetitionController.java</url>
+          <line>90</line>
+          <properties class="com.kardoaward.competitions.controller.CompetitionController" method="deleteDirection">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
           </properties>
-          <option name="timeStamp" value="3" />
+          <option name="timeStamp" value="4" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

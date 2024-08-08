@@ -15,9 +15,11 @@ public interface ApplicationService {
 
     List<ApplicationResponseDTO> findAllByUserId(Long userId);
 
-    Optional<Application> findById(Long id);
+    ApplicationResponseDTO findById(Long id);
 
     void deleteById(Long id);
 
     ApplicationResponseDTO updateStatus(Long id, String status);
+
+    String mapExternalStatusToInternal(String status);
 }
