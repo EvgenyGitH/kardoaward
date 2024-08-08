@@ -6,10 +6,6 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-
-//import javax.validation.constraints.Email;
-//import javax.validation.constraints.NotBlank;
-//import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 
 
@@ -30,6 +26,8 @@ public class UserUpdateRequest {
     private String country;
     private String region;
     private String city;
+    private String citizenship;
+    private String gender;
     private String phone;
     private String photoLink;
     private String backgroundLink;

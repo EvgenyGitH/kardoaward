@@ -7,11 +7,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import jakarta.validation.constraints.*;
 
-//import javax.validation.constraints.Email;
-//import javax.validation.constraints.NotBlank;
-//import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 
 @Data
@@ -25,13 +21,11 @@ public class NewUserRequest {
     private String email;
     @NotBlank
     private String password;
-    @NotBlank
     private String nickname;
     @NotBlank
     private String firstName;
     @NotBlank
     private String lastName;
-    @NotBlank
     private String middle_name;
     @NotBlank
     private LocalDate birthday;
@@ -41,6 +35,7 @@ public class NewUserRequest {
     private String region;
     @NotBlank
     private String city;
+
     private String phone;
     private String photoLink;
     private String backgroundLink;

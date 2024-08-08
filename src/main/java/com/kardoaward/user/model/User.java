@@ -35,6 +35,8 @@ public class User {
     private String country;
     private String region;
     private String city;
+    private String citizenship;
+    private String gender;
     private String phone;
     @Column(name = "photo_link")
     private String photoLink;

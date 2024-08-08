@@ -1,3 +1,4 @@
+
 DROP TABLE IF EXISTS users CASCADE;
 DROP TABLE IF EXISTS subscriptions CASCADE;
 DROP TABLE IF EXISTS messages CASCADE;
@@ -17,11 +18,13 @@ password VARCHAR NOT NULL,
 nickname VARCHAR NOT NULL,
 first_name VARCHAR NOT NULL,
 last_name VARCHAR NOT NULL,
-middle_name VARCHAR NOT NULL,
+middle_name VARCHAR,
 birthday TIMESTAMP NOT NULL,
 country VARCHAR NOT NULL,
 region VARCHAR NOT NULL,
 city VARCHAR NOT NULL,
+citizenship VARCHAR,
+gender VARCHAR,
 phone VARCHAR ,
 photo_link VARCHAR,
 background_link VARCHAR,
