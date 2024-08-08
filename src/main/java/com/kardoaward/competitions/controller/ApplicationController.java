@@ -1,35 +1,37 @@
 package com.kardoaward.competitions.controller;
 
 import com.kardoaward.competitions.dto.ApplicationDTO;
-import com.kardoaward.competitions.model.Application;
+import com.kardoaward.competitions.dto.ApplicationResponseDTO;
+import com.kardoaward.competitions.mapper.ApplicationMapper;
 import com.kardoaward.competitions.service.ApplicationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("user/applications")
 public class ApplicationController {
+
     @Autowired
     private ApplicationService applicationService;
 
     @PostMapping
-    public ResponseEntity<Application> submitApplication(@RequestBody ApplicationDTO applicationDTO) {
+    public ResponseEntity<ApplicationResponseDTO> submitApplication(@RequestBody ApplicationDTO applicationDTO) {
         return ResponseEntity.ok(applicationService.submitApplication(applicationDTO));
     }
 
     @GetMapping
-    public ResponseEntity<List<Application>> findAll() {
-        return ResponseEntity.ok(applicationService.findAll());
+    public ResponseEntity<List<ApplicationResponseDTO>> findAllByUser(@RequestParam Long userId) {
+        return ResponseEntity.ok(applicationService.findAllByUserId(userId));
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Application> findById(@PathVariable Long id) {
-        Optional<Application> application = applicationService.findById(id);
-        return application.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
+    public ResponseEntity<ApplicationResponseDTO> findById(@PathVariable Long id) {
+        return applicationService.findById(id)
+                .map(app -> ResponseEntity.ok(ApplicationMapper.convertToDTO(app)))
+                .orElseGet(() -> ResponseEntity.notFound().build());
     }
 
     @DeleteMapping("/{id}")

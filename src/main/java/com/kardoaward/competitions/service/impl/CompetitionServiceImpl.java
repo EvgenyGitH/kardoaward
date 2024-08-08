@@ -97,42 +97,22 @@ public class CompetitionServiceImpl implements CompetitionService {
         Competition competition = competitionRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Competition not found: " + id));
 
-        if (competitionDTO.getCompetitionType() != null) {
-            competition.setCompetitionType(competitionDTO.getCompetitionType());
-        }
+        Set<Direction> directions = competitionDTO.getDirections() != null ? competitionDTO.getDirections().stream()
+                .map(name -> directionRepository.findByName(name)
+                        .orElseThrow(() -> new RuntimeException("Direction not found: " + name)))
+                .collect(Collectors.toSet()) : competition.getDirections();
 
-        if (competitionDTO.getStartDate() != null) {
-            competition.setStartDate(competitionDTO.getStartDate());
-        }
+        Set<ParticipationType> participationTypes = competitionDTO.getParticipationTypes() != null ? competitionDTO.getParticipationTypes().stream()
+                .map(name -> participationTypeRepository.findByName(name)
+                        .orElseThrow(() -> new RuntimeException("Participation Type not found: " + name)))
+                .collect(Collectors.toSet()) : competition.getParticipationTypes();
 
-        if (competitionDTO.getEndDate() != null) {
-            competition.setEndDate(competitionDTO.getEndDate());
-        }
+        Set<Location> locations = competitionDTO.getLocations() != null ? competitionDTO.getLocations().stream()
+                .map(name -> locationRepository.findByName(name)
+                        .orElseThrow(() -> new RuntimeException("Location not found: " + name)))
+                .collect(Collectors.toSet()) : competition.getLocations();
 
-        if (competitionDTO.getDirections() != null) {
-            Set<Direction> directions = competitionDTO.getDirections().stream()
-                    .map(name -> directionRepository.findByName(name)
-                            .orElseThrow(() -> new RuntimeException("Direction not found: " + name)))
-                    .collect(Collectors.toSet());
-            competition.setDirections(directions);
-        }
-
-        if (competitionDTO.getParticipationTypes() != null) {
-            Set<ParticipationType> participationTypes = competitionDTO.getParticipationTypes().stream()
-                    .map(name -> participationTypeRepository.findByName(name)
-                            .orElseThrow(() -> new RuntimeException("Participation Type not found: " + name)))
-                    .collect(Collectors.toSet());
-            competition.setParticipationTypes(participationTypes);
-        }
-
-        if (competitionDTO.getLocations() != null) {
-            Set<Location> locations = competitionDTO.getLocations().stream()
-                    .map(name -> locationRepository.findByName(name)
-                            .orElseThrow(() -> new RuntimeException("Location not found: " + name)))
-                    .collect(Collectors.toSet());
-            competition.setLocations(locations);
-        }
-
+        CompetitionMapper.updateCompetitionFromDTO(competition, competitionDTO, participationTypes, directions, locations);
         return competitionRepository.save(competition);
     }
 

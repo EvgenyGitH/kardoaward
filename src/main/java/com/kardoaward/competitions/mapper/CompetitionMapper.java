@@ -21,4 +21,25 @@ public class CompetitionMapper {
         competition.setLocations(locations);
         return competition;
     }
+
+    public void updateCompetitionFromDTO(Competition competition, CompetitionDTO competitionDTO, Set<ParticipationType> participationTypes, Set<Direction> directions, Set<Location> locations) {
+        if (competitionDTO.getCompetitionType() != null) {
+            competition.setCompetitionType(competitionDTO.getCompetitionType());
+        }
+        if (competitionDTO.getStartDate() != null) {
+            competition.setStartDate(competitionDTO.getStartDate());
+        }
+        if (competitionDTO.getEndDate() != null) {
+            competition.setEndDate(competitionDTO.getEndDate());
+        }
+        if (competitionDTO.getParticipationTypes() != null) {
+            competition.setParticipationTypes(participationTypes);
+        }
+        if (competitionDTO.getDirections() != null) {
+            competition.setDirections(directions);
+        }
+        if (competitionDTO.getLocations() != null) {
+            competition.setLocations(locations);
+        }
+    }
 }

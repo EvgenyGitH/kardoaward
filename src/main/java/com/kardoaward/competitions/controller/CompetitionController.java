@@ -39,6 +39,12 @@ public class CompetitionController {
         return competition.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
+    @PatchMapping("/{id}")
+    public ResponseEntity<Competition> updateCompetition(@PathVariable Long id, @RequestBody CompetitionDTO competitionDTO) {
+        Competition updatedCompetition = competitionService.updateCompetition(id, competitionDTO);
+        return ResponseEntity.ok(updatedCompetition);
+    }
+
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteById(@PathVariable Long id) {
         competitionService.deleteById(id);
