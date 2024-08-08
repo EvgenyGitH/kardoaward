@@ -16,20 +16,13 @@ public class ApplicationDTO {
     private String applicationType;
     private String status;
 
-    private String email;
-    private String password;
-    private String nickname;
     private String firstName;
     private String lastName;
     private String middleName;
     private LocalDate birthday;
-    private String country;
-    private String region;
-    private String city;
     private String phone;
-    private String photoLink;
-    private String backgroundLink;
+    private String city;
+    private String citizenship;
+    private String gender;
     private String pageLink;
-    private String style;
-    private String aboutMe;
 }
