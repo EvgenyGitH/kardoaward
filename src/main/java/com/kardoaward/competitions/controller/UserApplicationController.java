@@ -16,7 +16,7 @@ import java.util.List;
 @Slf4j
 @RequestMapping("user/applications")
 @Tag(name = "Управление заявками пользователя", description = "Операции, связанные с управлением заявками пользователя")
-public class ApplicationController {
+public class UserApplicationController {
 
     @Autowired
     private ApplicationService applicationService;
@@ -33,13 +33,6 @@ public class ApplicationController {
     public List<ApplicationResponseDTO> findAllByUser(@Parameter(description = "ID пользователя") @RequestParam Long userId) {
         log.info("Запрос: получить все заявки пользователя с ID {}", userId);
         return applicationService.findAllByUserId(userId);
-    }
-
-    @GetMapping("/all")
-    @Operation(summary = "Получение всех заявок")
-    public List<ApplicationResponseDTO> findAll() {
-        log.info("Запрос: получить все заявки");
-        return applicationService.findAll();
     }
 
     @GetMapping("/{id}")

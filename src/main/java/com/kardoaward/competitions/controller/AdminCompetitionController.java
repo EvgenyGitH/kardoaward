@@ -23,7 +23,7 @@ import java.util.List;
 @Slf4j
 @RequestMapping("/admin/competitions")
 @Tag(name = "Управление соревнованиями", description = "Операции, связанные с управлением соревнованиями")
-public class CompetitionController {
+public class AdminCompetitionController {
 
     @Autowired
     private CompetitionService competitionService;

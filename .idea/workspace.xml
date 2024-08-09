@@ -4,21 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4b70baa4-eb5c-4146-be79-5bb36d60cce0" name="Changes" comment="обновил сервисы">
+    <list default="true" id="4b70baa4-eb5c-4146-be79-5bb36d60cce0" name="Changes" comment="обновил заявки">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/kardoaward/competitions/controller/UserCompetitionController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kardoaward/competitions/controller/AdminApplicationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kardoaward/competitions/controller/AdminApplicationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kardoaward/competitions/controller/ApplicationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kardoaward/competitions/controller/ApplicationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kardoaward/competitions/controller/CompetitionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kardoaward/competitions/controller/CompetitionController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kardoaward/competitions/dto/ApplicationDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kardoaward/competitions/dto/ApplicationDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kardoaward/competitions/dto/ApplicationResponseDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kardoaward/competitions/dto/ApplicationResponseDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kardoaward/competitions/mapper/ApplicationMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kardoaward/competitions/mapper/ApplicationMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kardoaward/competitions/model/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kardoaward/competitions/model/Application.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kardoaward/competitions/repository/ApplicationRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kardoaward/competitions/repository/ApplicationRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kardoaward/competitions/repository/DirectionRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kardoaward/competitions/repository/DirectionRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kardoaward/competitions/service/impl/ApplicationServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kardoaward/competitions/service/impl/ApplicationServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kardoaward/competitions/service/impl/CompetitionServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kardoaward/competitions/service/impl/CompetitionServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/schema.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/schema.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kardoaward/competitions/controller/ApplicationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kardoaward/competitions/controller/UserApplicationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kardoaward/competitions/controller/CompetitionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kardoaward/competitions/controller/AdminCompetitionController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -106,7 +96,15 @@
       <option name="project" value="LOCAL" />
       <updated>1723147998057</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="обновил заявки">
+      <option name="closed" value="true" />
+      <created>1723197648605</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1723197648605</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -114,6 +112,7 @@
     <MESSAGE value="добваил swgger" />
     <MESSAGE value="Добавил аннотации в регистрацию" />
     <MESSAGE value="обновил сервисы" />
-    <option name="LAST_COMMIT_MESSAGE" value="обновил сервисы" />
+    <MESSAGE value="обновил заявки" />
+    <option name="LAST_COMMIT_MESSAGE" value="обновил заявки" />
   </component>
 </project>
