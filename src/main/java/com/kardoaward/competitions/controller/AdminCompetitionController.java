@@ -4,7 +4,7 @@ import com.kardoaward.competitions.dto.CompetitionDTO;
 import com.kardoaward.competitions.dto.DirectionDTO;
 import com.kardoaward.competitions.dto.LocationDTO;
 import com.kardoaward.competitions.dto.ParticipationTypeDTO;
-import com.kardoaward.competitions.mapper.CompetitionSummaryDTO;
+import com.kardoaward.competitions.dto.CompetitionSummaryDTO;
 import com.kardoaward.competitions.model.Competition;
 import com.kardoaward.competitions.model.Direction;
 import com.kardoaward.competitions.model.Location;

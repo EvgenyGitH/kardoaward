@@ -56,7 +56,6 @@ public class ApplicationServiceImpl implements ApplicationService {
         if (applicationDTO.getGender() != null) user.setGender(applicationDTO.getGender());
         if (applicationDTO.getBirthday() != null) user.setBirthday(applicationDTO.getBirthday());
         if (applicationDTO.getCitizenship() != null) user.setCitizenship(applicationDTO.getCitizenship());
-        if (applicationDTO.getPageLink() != null) user.setPageLink(applicationDTO.getPageLink());
 
         userRepository.save(user);
 

@@ -1,4 +1,4 @@
-package com.kardoaward.competitions.mapper;
+package com.kardoaward.competitions.dto;
 
 
 import lombok.AllArgsConstructor;

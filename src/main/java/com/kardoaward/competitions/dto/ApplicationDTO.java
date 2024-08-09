@@ -25,6 +25,5 @@ public class ApplicationDTO {
     private String city;
     private String citizenship;
     private String gender;
-    private String pageLink;
     private List<String> directions;
 }
