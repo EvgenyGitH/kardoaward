@@ -29,4 +29,12 @@ public class Application {
 
     private String applicationType;
     private String status;
+
+    @ManyToMany
+    @JoinTable(
+            name = "application_directions",
+            joinColumns = @JoinColumn(name = "application_id"),
+            inverseJoinColumns = @JoinColumn(name = "direction_id")
+    )
+    private Set<Direction> directions;
 }

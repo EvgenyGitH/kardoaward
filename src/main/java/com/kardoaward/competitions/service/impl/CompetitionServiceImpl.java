@@ -15,6 +15,7 @@ import com.kardoaward.competitions.repository.DirectionRepository;
 import com.kardoaward.competitions.repository.LocationRepository;
 import com.kardoaward.competitions.repository.ParticipationTypeRepository;
 import com.kardoaward.competitions.service.CompetitionService;
+import com.kardoaward.exception.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -40,17 +41,17 @@ public class CompetitionServiceImpl implements CompetitionService {
     public Competition createCompetition(CompetitionDTO competitionDTO) {
         Set<Direction> directions = competitionDTO.getDirections().stream()
                 .map(name -> directionRepository.findByName(name)
-                        .orElseThrow(() -> new RuntimeException("Direction not found: " + name)))
+                        .orElseThrow(() -> new NotFoundException("Direction not found: " + name)))
                 .collect(Collectors.toSet());
 
         Set<ParticipationType> participationTypes = competitionDTO.getParticipationTypes().stream()
                 .map(name -> participationTypeRepository.findByName(name)
-                        .orElseThrow(() -> new RuntimeException("Participation Type not found: " + name)))
+                        .orElseThrow(() -> new NotFoundException("Participation Type not found: " + name)))
                 .collect(Collectors.toSet());
 
         Set<Location> locations = competitionDTO.getLocations().stream()
                 .map(name -> locationRepository.findByName(name)
-                        .orElseThrow(() -> new RuntimeException("Location not found: " + name)))
+                        .orElseThrow(() -> new NotFoundException("Location not found: " + name)))
                 .collect(Collectors.toSet());
 
         return competitionRepository.save(CompetitionMapper.competitionFromDTO(competitionDTO, participationTypes, directions, locations));
@@ -71,7 +72,7 @@ public class CompetitionServiceImpl implements CompetitionService {
     @Override
     public Competition findById(Long id) {
         Competition competition = competitionRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Competition not found: " + id));
+                .orElseThrow(() -> new NotFoundException("Competition not found: " + id));
         return competition;
     }
 
@@ -104,21 +105,21 @@ public class CompetitionServiceImpl implements CompetitionService {
     @Override
     public Competition updateCompetition(Long id, CompetitionDTO competitionDTO) {
         Competition competition = competitionRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Competition not found: " + id));
+                .orElseThrow(() -> new NotFoundException("Competition not found: " + id));
 
         Set<Direction> directions = competitionDTO.getDirections() != null ? competitionDTO.getDirections().stream()
                 .map(name -> directionRepository.findByName(name)
-                        .orElseThrow(() -> new RuntimeException("Direction not found: " + name)))
+                        .orElseThrow(() -> new NotFoundException("Direction not found: " + name)))
                 .collect(Collectors.toSet()) : competition.getDirections();
 
         Set<ParticipationType> participationTypes = competitionDTO.getParticipationTypes() != null ? competitionDTO.getParticipationTypes().stream()
                 .map(name -> participationTypeRepository.findByName(name)
-                        .orElseThrow(() -> new RuntimeException("Participation Type not found: " + name)))
+                        .orElseThrow(() -> new NotFoundException("Participation Type not found: " + name)))
                 .collect(Collectors.toSet()) : competition.getParticipationTypes();
 
         Set<Location> locations = competitionDTO.getLocations() != null ? competitionDTO.getLocations().stream()
                 .map(name -> locationRepository.findByName(name)
-                        .orElseThrow(() -> new RuntimeException("Location not found: " + name)))
+                        .orElseThrow(() -> new NotFoundException("Location not found: " + name)))
                 .collect(Collectors.toSet()) : competition.getLocations();
 
         CompetitionMapper.updateCompetitionFromDTO(competition, competitionDTO, participationTypes, directions, locations);

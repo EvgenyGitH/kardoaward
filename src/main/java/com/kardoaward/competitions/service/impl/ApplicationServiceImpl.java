@@ -5,18 +5,22 @@ import com.kardoaward.competitions.dto.ApplicationResponseDTO;
 import com.kardoaward.competitions.mapper.ApplicationMapper;
 import com.kardoaward.competitions.model.Application;
 import com.kardoaward.competitions.model.Competition;
+import com.kardoaward.competitions.model.Direction;
 import com.kardoaward.competitions.model.ParticipationType;
 import com.kardoaward.competitions.repository.ApplicationRepository;
 import com.kardoaward.competitions.repository.CompetitionRepository;
+import com.kardoaward.competitions.repository.DirectionRepository;
 import com.kardoaward.competitions.repository.ParticipationTypeRepository;
 import com.kardoaward.competitions.service.ApplicationService;
+import com.kardoaward.exception.DataConflictException;
+import com.kardoaward.exception.NotFoundException;
 import com.kardoaward.user.model.User;
 import com.kardoaward.user.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.HashSet;
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 
@@ -34,13 +38,16 @@ public class ApplicationServiceImpl implements ApplicationService {
     @Autowired
     private ParticipationTypeRepository participationTypeRepository;
 
+    @Autowired
+    private DirectionRepository directionRepository;
+
     @Override
     public ApplicationResponseDTO submitApplication(ApplicationDTO applicationDTO) {
         Competition competition = competitionRepository.findById(applicationDTO.getCompetitionId())
-                .orElseThrow(() -> new RuntimeException("Competition not found: " + applicationDTO.getCompetitionId()));
+                .orElseThrow(() -> new NotFoundException("Competition not found: " + applicationDTO.getCompetitionId()));
 
         User user = userRepository.findById(applicationDTO.getUserId())
-                .orElseThrow(() -> new RuntimeException("User not found: " + applicationDTO.getUserId()));
+                .orElseThrow(() -> new NotFoundException("User not found: " + applicationDTO.getUserId()));
 
         if (applicationDTO.getFirstName() != null) user.setFirstName(applicationDTO.getFirstName());
         if (applicationDTO.getLastName() != null) user.setLastName(applicationDTO.getLastName());
@@ -54,10 +61,10 @@ public class ApplicationServiceImpl implements ApplicationService {
         userRepository.save(user);
 
         ParticipationType participationType = participationTypeRepository.findByName(applicationDTO.getApplicationType())
-                .orElseThrow(() -> new RuntimeException("Participation type not found: " + applicationDTO.getApplicationType()));
+                .orElseThrow(() -> new NotFoundException("Participation type not found: " + applicationDTO.getApplicationType()));
 
         if (!competition.getParticipationTypes().contains(participationType)) {
-            throw new RuntimeException("Participation type is not valid for this competition.");
+            throw new DataConflictException("Participation type is not valid for this competition.");
         }
 
         Application application = new Application();
@@ -65,6 +72,15 @@ public class ApplicationServiceImpl implements ApplicationService {
         application.setUser(user);
         application.setApplicationType(applicationDTO.getApplicationType());
         application.setStatus("Отправлен");
+
+        application.setDirections(new HashSet<>());
+
+        List<Direction> selectedDirections = directionRepository.findByNameIn(applicationDTO.getDirections());
+        if (selectedDirections.isEmpty()) {
+            throw new DataConflictException("Selected directions are not valid for this competition.");
+        }
+
+        application.getDirections().addAll(selectedDirections);
 
         Application savedApplication = applicationRepository.save(application);
 
@@ -88,7 +104,7 @@ public class ApplicationServiceImpl implements ApplicationService {
     @Override
     public ApplicationResponseDTO findById(Long id) {
         Application application = applicationRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Application not found: " + id));
+                .orElseThrow(() -> new NotFoundException("Application not found: " + id));
         return ApplicationMapper.convertToDTO(application);
     }
 
@@ -100,7 +116,7 @@ public class ApplicationServiceImpl implements ApplicationService {
     @Override
     public ApplicationResponseDTO updateStatus(Long id, String status) {
         Application application = applicationRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Application not found: " + id));
+                .orElseThrow(() -> new NotFoundException("Application not found: " + id));
 
         String internalStatus = mapExternalStatusToInternal(status);
 
@@ -108,6 +124,7 @@ public class ApplicationServiceImpl implements ApplicationService {
         applicationRepository.save(application);
         return ApplicationMapper.convertToDTO(application);
     }
+
     @Override
     public String mapExternalStatusToInternal(String status) {
         switch (status) {
@@ -116,7 +133,7 @@ public class ApplicationServiceImpl implements ApplicationService {
             case "rejected":
                 return "Отклонена";
             default:
-                throw new RuntimeException("Invalid status: " + status);
+                throw new DataConflictException("Invalid status: " + status);
         }
     }
 }
