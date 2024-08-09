@@ -13,6 +13,7 @@ import com.kardoaward.competitions.service.CompetitionService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -30,7 +31,7 @@ public class AdminCompetitionController {
 
     @PostMapping
     @Operation(summary = "Создание нового соревнования")
-    public Competition createCompetition(@RequestBody CompetitionDTO competitionDTO) {
+    public Competition createCompetition(@RequestBody @Valid CompetitionDTO competitionDTO) {
         log.info("Запрос: создать новое соревнование");
         return competitionService.createCompetition(competitionDTO);
     }
@@ -52,7 +53,7 @@ public class AdminCompetitionController {
     @PatchMapping("/{id}")
     @Operation(summary = "Обновление информации о соревновании")
     public Competition updateCompetition(@Parameter(description = "ID соревнования") @PathVariable Long id,
-                                         @RequestBody CompetitionDTO competitionDTO) {
+                                         @RequestBody @Valid CompetitionDTO competitionDTO) {
         log.info("Запрос: обновить информацию о соревновании с ID {}", id);
         return competitionService.updateCompetition(id, competitionDTO);
     }
@@ -66,21 +67,21 @@ public class AdminCompetitionController {
 
     @PostMapping("/directions")
     @Operation(summary = "Добавление нового направления")
-    public Direction addDirection(@RequestBody DirectionDTO directionDTO) {
+    public Direction addDirection(@RequestBody @Valid DirectionDTO directionDTO) {
         log.info("Запрос: добавить новое направление");
         return competitionService.addDirection(directionDTO);
     }
 
     @PostMapping("/participation-types")
     @Operation(summary = "Добавление нового типа участия")
-    public ParticipationType addParticipationType(@RequestBody ParticipationTypeDTO participationTypeDTO) {
+    public ParticipationType addParticipationType(@RequestBody @Valid ParticipationTypeDTO participationTypeDTO) {
         log.info("Запрос: добавить новый тип участия");
         return competitionService.addParticipationType(participationTypeDTO);
     }
 
     @PostMapping("/locations")
     @Operation(summary = "Добавление нового места проведения")
-    public Location addLocation(@RequestBody LocationDTO locationDTO) {
+    public Location addLocation(@RequestBody @Valid LocationDTO locationDTO) {
         log.info("Запрос: добавить новое место проведения");
         return competitionService.addLocation(locationDTO);
     }

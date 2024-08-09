@@ -4,6 +4,7 @@ import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.security.Keys;
+import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
@@ -25,7 +26,14 @@ public class JwtUtil {
     private Key key;
 
     public JwtUtil() {
-        this.key = Keys.secretKeyFor(SignatureAlgorithm.HS256);
+    }
+
+    @PostConstruct
+    public void init() {
+        if (secret == null || secret.isEmpty()) {
+            throw new IllegalArgumentException("Secret key cannot be null or empty");
+        }
+        this.key = Keys.hmacShaKeyFor(secret.getBytes());
     }
 
     public String generateToken(String username, String role) {
