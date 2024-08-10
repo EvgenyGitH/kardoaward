@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="4b70baa4-eb5c-4146-be79-5bb36d60cce0" name="Changes" comment="добавил функционала пользаку">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/kardoaward/security/jwt/CustomAuthenticationToken.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kardoaward/competitions/controller/AdminCompetitionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kardoaward/competitions/controller/AdminCompetitionController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kardoaward/competitions/controller/UserApplicationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kardoaward/competitions/controller/UserApplicationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kardoaward/competitions/dto/ApplicationDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kardoaward/competitions/dto/ApplicationDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kardoaward/competitions/dto/CompetitionDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kardoaward/competitions/dto/CompetitionDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kardoaward/competitions/dto/DirectionDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kardoaward/competitions/dto/DirectionDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kardoaward/competitions/dto/LocationDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kardoaward/competitions/dto/LocationDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kardoaward/competitions/dto/ParticipationTypeDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kardoaward/competitions/dto/ParticipationTypeDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kardoaward/competitions/model/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kardoaward/competitions/model/Application.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kardoaward/competitions/repository/DirectionRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kardoaward/competitions/repository/DirectionRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kardoaward/competitions/service/ApplicationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kardoaward/competitions/service/ApplicationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kardoaward/exception/ErrorHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kardoaward/exception/ErrorHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kardoaward/security/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kardoaward/security/config/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kardoaward/security/jwt/JwtRequestFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kardoaward/security/jwt/JwtRequestFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kardoaward/security/jwt/JwtUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kardoaward/security/jwt/JwtUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/schema.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/schema.sql" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="package-info" />
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 5
+}</component>
+  <component name="ProjectId" id="2kESQgSZWwzFtnIbGDTyYLvRkxX" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="showLibraryContents" value="true" />
+    <option name="showVisibilityIcons" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.KardoawardApplication.executor&quot;: &quot;Debug&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RunManager">
+    <configuration name="KardoawardApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.kardoaward.KardoawardApplication" />
+      <module name="kardoaward" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.kardoaward.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.KardoawardApplication" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task id="LOCAL-00001" summary="добваил swgger">
+      <option name="closed" value="true" />
+      <created>1722281721162</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1722281721162</updated>
+    </task>
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="4b70baa4-eb5c-4146-be79-5bb36d60cce0" name="Changes" comment="добваил swgger" />
+      <created>1722847230386</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1722847230386</updated>
+    </task>
+    <task id="LOCAL-00002" summary="обновил сервисы">
+      <option name="closed" value="true" />
+      <created>1723147998057</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1723147998057</updated>
+    </task>
+    <task id="LOCAL-00003" summary="обновил заявки">
+      <option name="closed" value="true" />
+      <created>1723197648605</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1723197648605</updated>
+    </task>
+    <task id="LOCAL-00004" summary="обновил заявки">
+      <option name="closed" value="true" />
+      <created>1723198381924</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1723198381924</updated>
+    </task>
+    <task id="LOCAL-00005" summary="добавил функционала пользаку">
+      <option name="closed" value="true" />
+      <created>1723199680571</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1723199680571</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
+    <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="init" />
+    <MESSAGE value="добваил swgger" />
+    <MESSAGE value="Добавил аннотации в регистрацию" />
+    <MESSAGE value="обновил сервисы" />
+    <MESSAGE value="обновил заявки" />
+    <MESSAGE value="добавил функционала пользаку" />
+    <option name="LAST_COMMIT_MESSAGE" value="добавил функционала пользаку" />
+  </component>
+</project>
