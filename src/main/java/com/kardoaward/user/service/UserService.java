@@ -17,6 +17,7 @@ public interface UserService {
     UserProfile updateUser(Long userId, UserUpdateRequest userUpdateRequest);
 
     UserProfile getUserById(Long userId);
+    UserProfile getUserByEmail(String email);
 
     UserProfile deleteUserById(Long userId);
 

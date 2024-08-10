@@ -7,6 +7,7 @@ import com.kardoaward.security.jwt.JwtUtil;
 import com.kardoaward.user.dto.NewUserRequest;
 import com.kardoaward.user.dto.UserProfile;
 import com.kardoaward.user.service.UserService;
+import io.swagger.v3.oas.annotations.Hidden;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -47,6 +48,7 @@ public class AuthController {
         return ResponseEntity.ok(new AuthResponse(token));
     }
 
+    @Hidden
     @PostMapping("/register")
     public ResponseEntity<UserProfile> register(@Valid @RequestBody NewUserRequest user) {
         return ResponseEntity.ok(userService.createUser(user));

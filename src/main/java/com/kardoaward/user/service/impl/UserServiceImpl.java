@@ -3,6 +3,7 @@ package com.kardoaward.user.service.impl;
 
 import com.kardoaward.exception.DataConflictException;
 import com.kardoaward.exception.DuplicateException;
+import com.kardoaward.exception.NotCorrectDataException;
 import com.kardoaward.exception.NotFoundException;
 import com.kardoaward.security.jwt.CustomUserDetails;
 import com.kardoaward.subscription.service.SubscriptionService;
@@ -57,6 +58,9 @@ public class UserServiceImpl implements UserService, UserDetailsService {
             user.setNickname(createNickname());
         } else {
             checkNickname(newUserRequest.getNickname());// удалить, если поле nickName будет всегда null
+        }
+        if(newUserRequest.getBirthday().isAfter(LocalDate.now().minusYears(6))){
+            throw new NotCorrectDataException("Ограничение по возрасту 6+");
         }
         String encodedPassword = passwordEncoder.encode(newUserRequest.getPassword());
         user.setPassword(encodedPassword);
@@ -161,6 +165,12 @@ public class UserServiceImpl implements UserService, UserDetailsService {
     @Override
     public UserProfile getUserById(Long userId) {
         User savedUser = userRepository.findById(userId).orElseThrow(() -> new NotFoundException("User with id: " + userId + "is not found."));
+        return UserMapper.userToUserProfile(savedUser);
+    }
+
+    @Override
+    public UserProfile getUserByEmail(String email) {
+        User savedUser = userRepository.findUserByEmailContainingIgnoreCase(email).orElseThrow(() -> new NotFoundException("User with email: " + email + "is not found."));
         return UserMapper.userToUserProfile(savedUser);
     }
 

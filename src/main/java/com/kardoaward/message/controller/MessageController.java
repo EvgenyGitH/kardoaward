@@ -18,7 +18,7 @@ import java.util.List;
 @AllArgsConstructor
 @Slf4j
 @Validated
-@RequestMapping(path = "user/users/messages")
+@RequestMapping(path = "/user/users/messages")
 @Tag (name = "Сообщения пользователей", description = "Управление сообщениями пользователя")
 public class MessageController {
 

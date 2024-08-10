@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @AllArgsConstructor
 @Slf4j
-@RequestMapping(path = "user/users")
+@RequestMapping(path = "/user/users")
 @Tag(name = "Данные User для авторизованных пользователей", description = "Управление данными User")
 public class ProfileUserController {
 
@@ -30,10 +30,17 @@ public class ProfileUserController {
     }
 
     @GetMapping("/{userId}")
-    @Operation(summary = "Получение данных профиля User")
+    @Operation(summary = "Получение данных профиля User по id")
     public UserProfile getUserById(@Parameter(description = "ID Пользователя") @PathVariable Long userId) {
         log.info("Request: get User profile");
         return userService.getUserById(userId);
+    }
+
+    @GetMapping("/email/{email}")
+    @Operation(summary = "Получение данных профиля User по email")
+    public UserProfile getUserById(@Parameter(description = "email Пользователя") @PathVariable String email) {
+        log.info("Request: get User profile by email");
+        return userService.getUserByEmail(email);
     }
 
     @DeleteMapping("/{userId}")

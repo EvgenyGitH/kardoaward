@@ -6,5 +6,11 @@ public enum Style {
     BREAKING,
     BMX,
     GRAFFITY,
-    DJING
+    DJING,
+    PARKOUR,
+    SKATEBOARDING,
+    KICKSCOOTERING,
+    TRICKING,
+    FREERUNNING
+
 }
