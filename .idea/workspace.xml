@@ -6,12 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="c317d9d4-cb08-4550-8038-e87dd364255f" name="Changes" comment="добавил функционала пользаку">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kardoaward/post/controller/PrivatePostController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kardoaward/post/controller/PrivatePostController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kardoaward/security/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kardoaward/security/config/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kardoaward/user/dto/UserPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kardoaward/user/dto/UserPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kardoaward/user/mapper/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kardoaward/user/mapper/UserMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kardoaward/user/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kardoaward/user/service/impl/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kardoaward/config/CorsConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kardoaward/config/CorsConfig.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
