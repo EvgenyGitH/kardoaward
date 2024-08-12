@@ -17,7 +17,6 @@ import java.util.List;
 @AllArgsConstructor
 public class UserPage {
 
-    //todo возможно необходимо будет добавить userId для фронта
     private Long id;
     private String nickname;
     private String firstName;

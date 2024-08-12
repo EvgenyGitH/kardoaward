@@ -88,7 +88,6 @@ public class UserServiceImpl implements UserService, UserDetailsService {
     }
 
 
-    //todo дополнить информацией из фич List<фича> ...
     @Override
     public UserPage getUserPageById(Long userId) {
         User savedUser = userRepository.findById(userId).orElseThrow(() -> new NotFoundException("User with id: " + userId + "is not found."));

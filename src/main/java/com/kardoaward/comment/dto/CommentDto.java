@@ -1,6 +1,7 @@
-package com.kardoaward.post.dto;
+package com.kardoaward.comment.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.kardoaward.user.dto.UserShortPage;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -12,13 +13,12 @@ import java.time.LocalDateTime;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class PostDto {
+public class CommentDto {
 
     private Long id;
-    private Long userId;
-    private String link;
+    private Long postId;
+    private UserShortPage sender;
     private String text;
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
-    private LocalDateTime datePost;
-
+    private LocalDateTime dateComment;
 }
