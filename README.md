@@ -26,7 +26,7 @@ QA
 
 
 ## Swagger:
-[http://localhost:8080/swagger-ui/index.html](http://localhost:8080/swagger-ui/index.html)
+[http://localhost:8080/swagger-ui/index.html](http://localhost:8080/swagger-ui/index.html)      
 Swagger спецификация в формате json: kardo_swagger.json
  
 ## Технологии
