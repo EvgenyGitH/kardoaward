@@ -5,6 +5,9 @@ import com.kardoaward.exception.DataConflictException;
 import com.kardoaward.exception.DuplicateException;
 import com.kardoaward.exception.NotCorrectDataException;
 import com.kardoaward.exception.NotFoundException;
+import com.kardoaward.post.dto.PostDto;
+import com.kardoaward.post.model.Post;
+import com.kardoaward.post.service.PostService;
 import com.kardoaward.security.jwt.CustomUserDetails;
 import com.kardoaward.subscription.service.SubscriptionService;
 import com.kardoaward.user.dto.*;
@@ -42,6 +45,7 @@ public class UserServiceImpl implements UserService, UserDetailsService {
     Long count = 0L;
     private final UserRepository userRepository;
     private final SubscriptionService subscriptionService;
+    private final PostService postService;
     private final PasswordEncoder passwordEncoder;
 
     private Long getNumber() {
@@ -91,8 +95,8 @@ public class UserServiceImpl implements UserService, UserDetailsService {
         User savedUser = userRepository.findById(userId).orElseThrow(() -> new NotFoundException("User with id: " + userId + "is not found."));
         List<UserShortPage> iFollowings = subscriptionService.getUserFollowings(userId);
         List<UserShortPage> myFollowers = subscriptionService.getUserFollowers(userId);
-
-        return UserMapper.userToUserPage(savedUser, iFollowings, myFollowers);
+        List<PostDto>posts = postService.getAllPostsByUserId(userId);
+        return UserMapper.userToUserPage(savedUser, iFollowings, myFollowers, posts);
     }
 
 
@@ -170,7 +174,11 @@ public class UserServiceImpl implements UserService, UserDetailsService {
 
     @Override
     public UserProfile getUserByEmail(String email) {
-        User savedUser = userRepository.findUserByEmailContainingIgnoreCase(email).orElseThrow(() -> new NotFoundException("User with email: " + email + "is not found."));
+
+        User savedUser = userRepository.findUserByEmailContainingIgnoreCase(email).get();
+
+
+      //  User savedUser = userRepository.findUserByEmailContainingIgnoreCase(email).orElseThrow(() -> new NotFoundException("User with email: " + email + "is not found."));
         return UserMapper.userToUserProfile(savedUser);
     }
 

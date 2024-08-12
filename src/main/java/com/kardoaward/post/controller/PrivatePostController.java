@@ -48,7 +48,7 @@ public class PrivatePostController {
 
     @DeleteMapping("/{userId}/{postId}")
     @Operation(summary = "Удаление публикации")
-    public void deleteUserById(@Parameter(description = "ID Пользователя") @PathVariable Long userId,
+    public void deletePostUserById(@Parameter(description = "ID Пользователя") @PathVariable Long userId,
                                @Parameter(description = "ID Публикации") @PathVariable Long postId) {
         log.info("Request: delete Post");
         postService.deletePost(userId, postId);

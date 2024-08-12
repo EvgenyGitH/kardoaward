@@ -1,5 +1,7 @@
 package com.kardoaward.user.mapper;
 
+import com.kardoaward.post.dto.PostDto;
+import com.kardoaward.post.model.Post;
 import com.kardoaward.user.dto.*;
 import com.kardoaward.user.model.Style;
 import com.kardoaward.user.model.User;
@@ -95,7 +97,7 @@ public class UserMapper {
 
 
     //todo дополнить фичами
-    public static UserPage userToUserPage(User user, List<UserShortPage> iFollowings, List<UserShortPage> myFollowers) {
+    public static UserPage userToUserPage(User user, List<UserShortPage> iFollowings, List<UserShortPage> myFollowers, List<PostDto>posts) {
         UserPage userPage = new UserPage();
         userPage.setId(user.getId());
         userPage.setNickname(user.getNickname());
@@ -114,6 +116,7 @@ public class UserMapper {
         userPage.setState(user.getState());
         userPage.setIFollowings(iFollowings);
         userPage.setMyFollowers(myFollowers);
+        userPage.setPosts(posts);
         return userPage;
     }
 
