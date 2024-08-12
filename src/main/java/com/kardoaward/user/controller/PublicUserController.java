@@ -17,10 +17,6 @@ import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
-
-//import javax.validation.Valid;
-//import javax.validation.constraints.Positive;
-//import javax.validation.constraints.PositiveOrZero;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -29,7 +25,7 @@ import java.util.List;
 @Slf4j
 @Validated
 @RequestMapping(path = "/public/users")
-@Tag(name="Данные User для неавторизованных пользователей", description = "Управление данными User")
+@Tag(name = "Данные User для неавторизованных пользователей", description = "Управление данными User")
 public class PublicUserController {
     private final UserService userService;
 
@@ -60,22 +56,22 @@ public class PublicUserController {
 
     @GetMapping("/page/{userId}")
     @Operation(summary = "Получение публичного профиля User")
-    public UserPage getUserPageById(@Parameter(description = "ID Пользователя")@PathVariable Long userId) {
+    public UserPage getUserPageById(@Parameter(description = "ID Пользователя") @PathVariable Long userId) {
         log.info("Request: get User profile");
         return userService.getUserPageById(userId);
     }
 
 
     @GetMapping("/checkEmail")
-    @Operation(summary = "Проверка уникальности email")
-    public boolean checkEmail(String email) {
+    @Operation(summary = "Проверка уникальности email", description = "Проверка существования email в Базе данных/ exists - true / not exist - false")
+    public boolean checkEmail(@RequestParam String email) {
         log.info("request: check Email ");
         return userService.checkEmail(email);
     }
 
     @GetMapping("/checkNickname")
-    @Operation(summary = "Проверка уникальности Nickname")
-    public boolean checkNickname(String nickname) {
+    @Operation(summary = "Проверка уникальности Nickname", description = "Проверка существования Nickname в Базе данных/ exists - true / not exist - false")
+    public boolean checkNickname(@RequestParam String nickname) {
         log.info("request: check nickname ");
         return userService.checkNickname(nickname);
     }

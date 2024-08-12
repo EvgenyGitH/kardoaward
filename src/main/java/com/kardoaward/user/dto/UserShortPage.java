@@ -7,7 +7,6 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDate;
 @Data
 @Builder
 @NoArgsConstructor
@@ -17,7 +16,6 @@ public class UserShortPage {
     private String nickname;
     private String firstName;
     private String lastName;
-
     private String photoLink;
     private Style style;
     private State state;

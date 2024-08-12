@@ -1,5 +1,6 @@
 package com.kardoaward.user.dto;
 
+import com.kardoaward.post.dto.PostDto;
 import com.kardoaward.user.model.State;
 import com.kardoaward.user.model.Style;
 import lombok.AllArgsConstructor;
@@ -37,5 +38,6 @@ public class UserPage {
     private List<UserShortPage> iFollowings;
     private List<UserShortPage> myFollowers;
 
+    private List<PostDto> posts;
 
 }
