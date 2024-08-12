@@ -8,7 +8,9 @@ import java.util.List;
 
 public interface MessageService {
     Message createMessage(Long senderId, Long recipientId, NewMessage newMessage);
+
     List<MessageWithShortUser> getAllMessagesById(Long senderId, Long recipientId);
+
     MessageWithShortUser updateMessageStatus(Long messageId, Long userId);
 
 }

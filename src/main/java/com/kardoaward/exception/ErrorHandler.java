@@ -16,7 +16,7 @@ public class ErrorHandler {
 
     @ExceptionHandler
     @ResponseStatus(HttpStatus.CONFLICT)
-    public ErrorResponse handlerDuplicateException (DuplicateException exception){
+    public ErrorResponse handlerDuplicateException(DuplicateException exception) {
         log.error(exception.getMessage());
         return new ErrorResponse(exception.getMessage());
     }
@@ -37,26 +37,28 @@ public class ErrorHandler {
 
     @ExceptionHandler
     @ResponseStatus(HttpStatus.BAD_REQUEST)
-    public ErrorResponse handleNotCorrectDataException (NotCorrectDataException exception){
+    public ErrorResponse handleNotCorrectDataException(NotCorrectDataException exception) {
         log.error(exception.getMessage());
         return new ErrorResponse(exception.getMessage());
     }
+
     @ExceptionHandler
     @ResponseStatus(HttpStatus.BAD_REQUEST)
-    public ErrorResponse handleMethodArgumentNotValidException (MethodArgumentNotValidException exception){
+    public ErrorResponse handleMethodArgumentNotValidException(MethodArgumentNotValidException exception) {
         log.error(exception.getMessage());
         return new ErrorResponse("Validation failed. check the entered data");
     }
 
     @ExceptionHandler
     @ResponseStatus(HttpStatus.BAD_REQUEST)
-    public ErrorResponse handleHttpMessageNotReadableException (HttpMessageNotReadableException exception){
+    public ErrorResponse handleHttpMessageNotReadableException(HttpMessageNotReadableException exception) {
         log.error(exception.getMessage());
         return new ErrorResponse("Validation failed. check the entered data");
     }
+
     @ExceptionHandler
     @ResponseStatus(HttpStatus.NOT_FOUND)
-    public ErrorResponse handleMissingServletRequestParameterException (MissingServletRequestParameterException exception){
+    public ErrorResponse handleMissingServletRequestParameterException(MissingServletRequestParameterException exception) {
         log.error(exception.getMessage());
         return new ErrorResponse(exception.getMessage());
     }

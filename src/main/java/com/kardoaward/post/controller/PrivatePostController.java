@@ -3,7 +3,6 @@ package com.kardoaward.post.controller;
 import com.kardoaward.post.dto.NewPost;
 import com.kardoaward.post.dto.PostDto;
 import com.kardoaward.post.service.PostService;
-import com.kardoaward.user.dto.UserPage;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -41,7 +40,7 @@ public class PrivatePostController {
 
     @GetMapping("/{userId}")
     @Operation(summary = "Получение публикаций Пользователя")
-    public List<PostDto>getAllPostsByUserId(@Parameter(description = "ID Пользователя")@PathVariable Long userId) {
+    public List<PostDto> getAllPostsByUserId(@Parameter(description = "ID Пользователя") @PathVariable Long userId) {
         log.info("Request: get User's Posts");
         return postService.getAllPostsByUserId(userId);
     }
@@ -49,7 +48,7 @@ public class PrivatePostController {
     @DeleteMapping("/{userId}/{postId}")
     @Operation(summary = "Удаление публикации")
     public void deletePostUserById(@Parameter(description = "ID Пользователя") @PathVariable Long userId,
-                               @Parameter(description = "ID Публикации") @PathVariable Long postId) {
+                                   @Parameter(description = "ID Публикации") @PathVariable Long postId) {
         log.info("Request: delete Post");
         postService.deletePost(userId, postId);
     }

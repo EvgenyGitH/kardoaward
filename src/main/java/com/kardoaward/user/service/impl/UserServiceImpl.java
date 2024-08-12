@@ -6,7 +6,6 @@ import com.kardoaward.exception.DuplicateException;
 import com.kardoaward.exception.NotCorrectDataException;
 import com.kardoaward.exception.NotFoundException;
 import com.kardoaward.post.dto.PostDto;
-import com.kardoaward.post.model.Post;
 import com.kardoaward.post.service.PostService;
 import com.kardoaward.security.jwt.CustomUserDetails;
 import com.kardoaward.subscription.service.SubscriptionService;
@@ -63,7 +62,7 @@ public class UserServiceImpl implements UserService, UserDetailsService {
         } else {
             checkNickname(newUserRequest.getNickname());// удалить, если поле nickName будет всегда null
         }
-        if(newUserRequest.getBirthday().isAfter(LocalDate.now().minusYears(6))){
+        if (newUserRequest.getBirthday().isAfter(LocalDate.now().minusYears(6))) {
             throw new NotCorrectDataException("Ограничение по возрасту 6+");
         }
         String encodedPassword = passwordEncoder.encode(newUserRequest.getPassword());
@@ -95,7 +94,7 @@ public class UserServiceImpl implements UserService, UserDetailsService {
         User savedUser = userRepository.findById(userId).orElseThrow(() -> new NotFoundException("User with id: " + userId + "is not found."));
         List<UserShortPage> iFollowings = subscriptionService.getUserFollowings(userId);
         List<UserShortPage> myFollowers = subscriptionService.getUserFollowers(userId);
-        List<PostDto>posts = postService.getAllPostsByUserId(userId);
+        List<PostDto> posts = postService.getAllPostsByUserId(userId);
         return UserMapper.userToUserPage(savedUser, iFollowings, myFollowers, posts);
     }
 
@@ -174,11 +173,7 @@ public class UserServiceImpl implements UserService, UserDetailsService {
 
     @Override
     public UserProfile getUserByEmail(String email) {
-
         User savedUser = userRepository.findUserByEmailContainingIgnoreCase(email).get();
-
-
-      //  User savedUser = userRepository.findUserByEmailContainingIgnoreCase(email).orElseThrow(() -> new NotFoundException("User with email: " + email + "is not found."));
         return UserMapper.userToUserProfile(savedUser);
     }
 

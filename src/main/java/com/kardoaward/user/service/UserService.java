@@ -13,17 +13,17 @@ public interface UserService {
 
     UserPage getUserPageById(Long userId);
 
-
     UserProfile updateUser(Long userId, UserUpdateRequest userUpdateRequest);
 
     UserProfile getUserById(Long userId);
+
     UserProfile getUserByEmail(String email);
 
     UserProfile deleteUserById(Long userId);
 
-
     boolean checkEmail(String email);
 
     boolean checkNickname(String nickname);
-    String createNickname ();
+
+    String createNickname();
 }

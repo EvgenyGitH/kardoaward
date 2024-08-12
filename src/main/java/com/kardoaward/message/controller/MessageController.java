@@ -19,7 +19,7 @@ import java.util.List;
 @Slf4j
 @Validated
 @RequestMapping(path = "/user/users/messages")
-@Tag (name = "Сообщения пользователей", description = "Управление сообщениями пользователя")
+@Tag(name = "Сообщения пользователей", description = "Управление сообщениями пользователя")
 public class MessageController {
 
     private final MessageService messageService;

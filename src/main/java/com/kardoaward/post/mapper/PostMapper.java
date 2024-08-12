@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class PostMapper {
-    public static Post newPostToPost (User user, NewPost newPost ){
+    public static Post newPostToPost(User user, NewPost newPost) {
         Post post = new Post();
         post.setUser(user);
         post.setLink(newPost.getLink());
@@ -19,7 +19,7 @@ public class PostMapper {
         return post;
     }
 
-    public static PostDto postToDto(Post post){
+    public static PostDto postToDto(Post post) {
         return PostDto.builder()
                 .id(post.getId())
                 .userId(post.getUser().getId())
@@ -29,7 +29,7 @@ public class PostMapper {
                 .build();
     }
 
-    public static List<PostDto>postToListDto(List<Post>posts){
+    public static List<PostDto> postToListDto(List<Post> posts) {
         return posts.stream()
                 .map(PostMapper::postToDto)
                 .collect(Collectors.toList());
