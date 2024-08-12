@@ -1,4 +1,4 @@
-package com.kardoaward.comment;
+package com.kardoaward.comment.model;
 
 import com.kardoaward.post.model.Post;
 import com.kardoaward.user.model.User;
@@ -30,6 +30,6 @@ public class Comment {
 
     private String text;
     @Column(name = "date_comment")
-    private LocalDateTime dateMessage;
+    private LocalDateTime dateComment;
 
 }

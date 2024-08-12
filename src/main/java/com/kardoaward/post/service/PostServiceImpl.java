@@ -1,9 +1,12 @@
 package com.kardoaward.post.service;
 
+import com.kardoaward.comment.dto.CommentDto;
+import com.kardoaward.comment.service.CommentService;
 import com.kardoaward.exception.DataConflictException;
 import com.kardoaward.exception.NotFoundException;
 import com.kardoaward.post.dto.NewPost;
 import com.kardoaward.post.dto.PostDto;
+import com.kardoaward.post.dto.PostWithComments;
 import com.kardoaward.post.mapper.PostMapper;
 import com.kardoaward.post.model.Post;
 import com.kardoaward.post.repository.PostRepository;
@@ -23,6 +26,7 @@ import java.util.List;
 public class PostServiceImpl implements PostService {
     private final PostRepository postRepository;
     private final UserRepository userRepository;
+    private final CommentService commentService;
 
     @Override
     public PostDto createPost(Long userId, NewPost newPost) {
@@ -54,15 +58,22 @@ public class PostServiceImpl implements PostService {
             throw new NotFoundException("User ID: " + userId + " not found");
         }
         List<Post> posts = postRepository.findAllByUserId(userId);
-        return PostMapper.postToListDto(posts);
+        return PostMapper.postsToListDto(posts);
     }
 
     @Override
-    public List<Post> findPostByParam(String nickname, String firstName, String lastName,
+    public List<PostDto> findPostByParam(String nickname, String firstName, String lastName,
                                       String text, int from, int size) {
         Pageable pageable = PageRequest.of(from / size, size);
         List<Post> foundPost = postRepository.findAllByParam(nickname, firstName, lastName, text, pageable);
-        return foundPost;
+        return PostMapper.postsToListDto(foundPost);
+    }
+
+    @Override
+    public PostWithComments getPostWithCommentsById(Long postId) {
+        Post post = postRepository.findById(postId).orElseThrow(() -> new NotFoundException("Post ID: " + postId + " not found"));
+        List<CommentDto>comments = commentService.getAllCommentsByPostId(postId);
+        return PostMapper.postToWithComments(post, comments);
     }
 
     @Override
