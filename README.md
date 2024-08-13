@@ -1,6 +1,7 @@
 # Кардо     
 Приложение КАРДО объединяет людей, интересующихся уличной культурой.   
-[https://kardoaward.com](https://kardoaward.com)
+[https://kardoaward.com](https://kardoaward.com)     
+
 
 ## Сведения о команде
 
@@ -27,7 +28,10 @@ QA
 
 ## Swagger:
 [http://localhost:8080/swagger-ui/index.html](http://localhost:8080/swagger-ui/index.html)      
-Swagger спецификация в формате json: kardo_swagger.json
+Swagger спецификация в формате json: kardo_swagger.json           
+
+Тестовая версия приложения:         
+http://51.250.35.168:8080   
  
 ## Технологии
 Сервис разработан с использованием следующих технологий:
